@@ -1,0 +1,21 @@
+# Gtags for navigation
+GPATH
+GRTAGS
+GTAGS
+
+# Latex auxilliary files
+*.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.run.xml
+report.pdf
+*.blg
+*.bbl
+*.bcf
+report-blx.bib
+report/auto/
+
