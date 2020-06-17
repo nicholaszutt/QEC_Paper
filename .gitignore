@@ -4,6 +4,7 @@ GRTAGS
 GTAGS
 
 # Latex auxilliary files
+*.el
 *.gz
 *.aux
 *.fdb_latexmk
