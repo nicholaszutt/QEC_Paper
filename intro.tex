@@ -1,31 +1,37 @@
 %why qec and principles here, intro to what qc are and what they can do
 
 Quantum computers are devices that exploit the features of quantum mechanics at
-the smallest scales of reality. They have the potential to solve computational
-problems that cannot be solved in any reasonable time on conventional computers
-\cite{fowler12_surfac_codes}. In principle, quantum computers will be able to
-accurately simulate physics \cite{feynman82_simul_physic_with_comput}, or implement
-algorithms, such as Shor's factoring algorithm \cite{Shor_1997}, or Grover's
-search algorithm \cite{Grover_1996}, in polynomial time, providing a massive
-speedup to computationally hard problems of interest. To date, superconducting
-LC circuits have shown the greatest promise in forming effective quantum bits
-(or qubits) \cite{Rol_2019} \cite{barends14_super_quant_circuit_at_surfac},
-however several other platforms, such as quantum dots
-\cite{huang19_fidel_bench_two_qubit_gates_silic} \cite{Lawrie_2020}, NV-centres
-in diamond \cite{Taminiau_2014}, and even topological qubits in semi-conducting
-nanowires \cite{Mourik_2012}, have seen growing interest and recent development.
+the smallest scales of reality. They even have the potential to solve
+computational problems that are not feasible for conventional computers
+\cite{nielsen_chuang_2010}. Some of the most famous
+applications are the accurate simulation of physics,
+\cite{feynman82_simul_physic_with_comput}, the speed up of searching task
+provided by Grover algorithm\cite{Grover_1996} or the polynomial time solution
+for the factorization of composite numbers, provided by Shor'a
+algorithm\cite{Shor_1997}, which has critical consequences in current cryptography
+methods. However, there are still key technological challenges that need to be
+overcome before this technology becomes widespread.
 
-Realizing a full, scalable, and reliable quantum computer is complicated by the
-fact that qubits are highly susceptible to noise, be it from their environment
-or through imperfections in the physical apparatuses, which will
-cause qubit decoherence, losing the very information that makes them so useful.
-To date, using various techniques, the upper bound on how long qubit coherence
-can be extended stretches to about 1 second \cite{Abobeih_2018}, but most lose
-coherence much sooner. In order for these qubits to be useful in computations,
-it will be necessary to preserve their states for much longer and to correct
-their states when they are subject to \textit{errors} due to environmental
-noise. Quantum error correction aims to protect qubits from noise processes,
-making reliable computation possible.
+To date, superconducting LC circuits have shown the greatest promise in forming
+effective quantum bits (or qubits) \cite{Rol_2019}
+\cite{barends14_super_quant_circuit_at_surfac}, however several other platforms,
+such as quantum dots \cite{huang19_fidel_bench_two_qubit_gates_silic}
+\cite{Lawrie_2020}, NV-centres in diamond \cite{Taminiau_2014}, and even
+topological qubits in semi-conducting nanowires \cite{Mourik_2012}, have seen
+growing interest and recent development. Nevertheless, they all suffer from some
+form of noise, which may be of different nature in each case, but still poses
+major challenges in the realization of an scalable quantum computer.
+
+Accounting for this noise is undoubtedly a daunting task. For that, different
+approaches have been developed which are usually grouped as part of
+\textit{quantum quantum error suppression} (QES), such as dynamical decoupling,
+or \textit{quantum error correction} (QEC) techniques. In particular, the latter
+approach has gone under rapid development in the recent decades from the schemes
+proposed by Shor\cite{Shor_1995_QEC} and Steane \cite{Steane_1996_QEC} to the
+new promising \textit{surface codes} \cite{fowler12_surfac_codes} that have
+higher tolerance to errors and require less interactions among the qubits.
+
+In this article...
 
 \subsection{Principles of Quantum Error Correction}
 In the basic theory of quantum error correction, quantum states are encoded into
