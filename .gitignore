@@ -15,7 +15,7 @@ GTAGS
 *.out
 *.synctex.gz
 *.run.xml
-report.pdf
+*blx.bib
 *.blg
 *.bbl
 *.bcf
