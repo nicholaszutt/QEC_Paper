@@ -15,9 +15,11 @@ sorting=none, % sort entries by appearance
 isbn=true, % include isbn, doi, url etc or not in bibliography entry
 doi=false,
 url=false,
+maxnames=1,
 eprint=false,
 abbreviate=true,
 style=ieee]{biblatex}
+
 
 % adding the bibliography file
 \addbibresource{references}
@@ -54,11 +56,10 @@ N.C.F.Zutt@student.tudelft.nl}
 \end{abstract}
 
 \begin{IEEEkeywords}
-  quantum, error correction, surface code, error decoding, fault-tolerance
+  quantum computation, error correction, surface code, error decoding, fault-tolerance
 \end{IEEEkeywords}
 
 \section{Introduction}
-#why qec and principles here, intro to what qc are and what they can do
 \input{intro}
 
 \section{Fault Tolerance and Encoding for Error}

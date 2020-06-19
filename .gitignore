@@ -3,6 +3,8 @@ GPATH
 GRTAGS
 GTAGS
 
+*.pdf
+
 # Latex auxilliary files
 *.el
 *.gz
