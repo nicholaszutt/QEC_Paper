@@ -1,16 +1,13 @@
-%why qec and principles here, intro to what qc are and what they can do
-
 Quantum computers are devices that exploit the features of quantum mechanics at
 the smallest scales of reality. They even have the potential to solve
 computational problems that are not feasible for conventional computers
-\cite{nielsen_chuang_2010}. Some of the most famous
-applications are the accurate simulation of physics,
-\cite{feynman82_simul_physic_with_comput}, the speed up of searching task
-provided by Grover algorithm\cite{Grover_1996} or the polynomial time solution
-for the factorization of composite numbers, provided by Shor'a
-algorithm\cite{Shor_1997}, which has critical consequences in current cryptography
-methods. However, there are still key technological challenges that need to be
-overcome before this technology becomes widespread.
+\cite{nielsen_chuang_2010}. Some of the most famous applications are the
+accurate simulation of physics \cite{feynman82_simul_physic_with_comput}, fast
+database searching provided by Grover's algorithm \cite{Grover_1996} and the
+polynomial time solution for factoring large composite numbers, provided by
+Shor's algorithm \cite{Shor_1997}, which has far-reaching consequences for
+current methods in cryptography. However, there are still key technological
+challenges that need to be overcome before this technology can be realized.
 
 To date, superconducting LC circuits have shown the greatest promise in forming
 effective quantum bits (or qubits) \cite{Rol_2019}
@@ -19,31 +16,32 @@ such as quantum dots \cite{huang19_fidel_bench_two_qubit_gates_silic}
 \cite{Lawrie_2020}, NV-centres in diamond \cite{Taminiau_2014}, and even
 topological qubits in semi-conducting nanowires \cite{Mourik_2012}, have seen
 growing interest and recent development. Nevertheless, they all suffer from some
-form of noise, which may be of different nature in each case, but still poses
-major challenges in the realization of an scalable quantum computer.
+form of noise, of a slightly different nature in each case, which poses
+major challenges in the realization of a scalable quantum computer.
 
 Accounting for this noise is undoubtedly a daunting task. For that, different
 approaches have been developed which are usually grouped as part of
-\textit{quantum quantum error suppression} (QES), such as dynamical decoupling,
-or \textit{quantum error correction} (QEC) techniques. In particular, the latter
-approach has gone under rapid development in the recent decades from the schemes
-proposed by Shor\cite{Shor_1995_QEC} and Steane \cite{Steane_1996_QEC} to the
-new promising \textit{surface codes} \cite{fowler12_surfac_codes} that have
-higher tolerance to errors and require less interactions among the qubits.
+\textit{quantum error suppression} (QES), such as dynamical decoupling, which
+attempt to reduce the noise at the hardware level, and \textit{quantum error
+  correction} (QEC) techniques, which aim to correct errors once they have
+occurred. In particular, the latter approach has undergone rapid development in
+recent decades from the schemes proposed by Shor \cite{Shor_1995_QEC} and Steane
+\cite{Steane_1996_QEC} to the new promising \textit{surface codes}
+\cite{fowler12_surfac_codes} that have higher tolerance to errors and require
+fewer interactions among the qubits.
 
-In this article...
+In this article, we review the key principles of quantum error correction,
+discuss ...
 
 \subsection{Principles of Quantum Error Correction}
 % I think that here we should mention what the [[n,k,d]] code is.
-
-%also maybe mention briefly the what an stabilizer is? depends on the space left.
 In the basic theory of quantum error correction, quantum states are encoded into
-several physical qubits, and the states of these encoded qubits can be probed
-through the measurement of stabilizers, which give information on the encoded
-states without affecting their states (thanks to the non-destructive nature of
-parity measurements) \cite{nielsen_chuang_2010}. If a certain physical qubit
-which makes up the encoded, logical level qubit undergoes some error process,
-this can be detected through the outcomes of the stabilizer measurements.
+several physical qubits. By performing the appropriate parity checks, it is
+possible to probe the state of the encoded qubit (which is comprised of many
+physical qubits) without changing its state, in order to detect errors on
+individual physical qubits. These parity checks are the \textit{stabilizers} of
+the error correction code; when all stabilizer measurements return an eigenvalue
+of $+1$, it signals that no error has occurred \cite{nielsen_chuang_2010}.
 Effective encoding protocols are such that each error process gives rise to a
 unique syndrome, which is just the list of stabilizer measurement outcomes,
 which provides the information needed to correct the error \cite{fowler12_surfac_codes}.
@@ -60,13 +58,14 @@ which provides the information needed to correct the error \cite{fowler12_surfac
 \end{figure}
 
 In any real implementation of physical qubits, there are several sources of
-error. State preparation and measurement may not be carried out perfectly, and
-we can model the imperfect protocols in terms of the system having some small
-chance $\epsilon$ to prepare (or measure) $|1\rangle$ when it should have
-prepared (or measured) $|0\rangle$. Coherent errors also occur through the
-imperfect application of quantum gates in circuits \cite{Devitt_2013}. All these
-sources of error can, in principle, be corrected for using a variety of encoding
-and detection schemes.
+error. State preparation and measurement may not be carried out perfectly.
+Coherent errors also occur through the imperfect application of quantum gates in
+circuits \cite{Devitt_2013}. Error models and error correction schemes are all
+predicated on the assumption that low-weight errors (affecting only a few
+qubits) are more likely than high weight errors. In other words, error
+probabilities must be small \cite{terhal15}. In principle though, all these
+(small) sources of error can be corrected for using a variety of encoding and
+detection schemes.
 
 The error detection scheme implemented by the surface code, shown in Fig.
 \ref{fig:surface_code}, is capable of precisely identifying errors in large
@@ -74,12 +73,12 @@ arrays of qubits. The $X$- and $Z$-stabilizer ancillas conduct parity
 measurements between the data qubits to which they are connected through a
 sequence of CNOT operations. Should an error occur on a given data qubit,
 depending on the error type ($X$, $Y$, or $Z$) either the $X$ or $Z$ (or both)
-type stabilizers will fire (returning an outcome of $-1$ in their measurement),
+type stabilizers will fire (return an outcome of $-1$ in their measurement),
 alerting us to the error.
 
 One great strength of the surface code is its ability to diagnose multiple
 errors simultaneously. Should two adjacent $X$-checks fire at one end of the
-surface, while two $Z$-check fire at the other end, we can conclude that a
+surface, while two $Z$-checks fire at the other end, we can conclude that a
 phase-flip error occurred on the data qubit between the two $X$-checks, while a
 bit-flip error occurred between the $Z$-checks. One must be careful, however,
 because decoding the error syndrome for any code is a problem without a unique
@@ -93,50 +92,10 @@ mistakes in identifying the cause of a syndrome become more commonplace.
 
 When a syndrome is misinterpreted, the code implements the \textit{wrong
   correction}, and this can lead to a logical level operation being applied to
-the logical qubit. A parameter of great interest in error correction codes is
-this logical error rate, and specifically how it depends on and improves on the
-physical error rate of the system in question. 
+the logical qubit. The rate at which this occurs, called the \textit{logical
+  error rate}, as a function of the physical error rate of the code is of great
+interest in characterizing the effectiveness of an error correction protocol.
 
-% One of the simplest such
-% examples of error correcting codes is the \textit{repetition code}, where logical level
-% qubits are encoded as,
-% \begin{equation}
-%   |\bar{0}\rangle = |000\rangle ,  \:\:\:\:\:\:
-%   |\bar{1}\rangle = |111\rangle .
-% \end{equation}
-% These encoded states, along with the stabilizers $Z_1 \otimes Z_2 \otimes I_3 =
-% ZZI$ and $I_1 \otimes Z_2 \otimes Z_3 = IZZ$, protect the quantum state against
-% bit-flip ($X$ type) errors in the physical qubits. Operators must be promoted to
-% the logical level in order to implement the right operations, allowing us to
-% define $\bar{X} = XXX$ and $\bar{Z}=ZZZ$. Under normal operation, both
-% stabilizers return an eigenvalue of $+1$ for the $|\bar{0}\rangle$ and
-% $|\bar{1}\rangle$ states. In the presence of a bit-flip error, for example on
-% the first qubit, where $|\bar{0}\rangle \rightarrow |100\rangle$, the first
-% stabilizer measurement $ZZI$ will return an eigenvalue of $-1$, signalling that
-% an error has occurred on the logical level bit. Even better, as long as we limit
-% ourselves to single errors, the stabilizer outcomes, collectively called the
-% error \textit{syndrome}, uniquely identify which physical qubit was subject to
-% the error. This brings about the possibility of \textit{error correction}. We
-% can probe the system to ask whether it is still in a valid logical state, and if
-% not, we find from the outcome of our stabilizer measurements what the most
-% likely error to have occurred is, and we can subsequently correct this.
-
-% This simple example has several drawbacks though. It can be shown that
-% certain two qubit errors give rise to the exact same syndrome as single qubit
-% errors, meaning that the correction that needs to be applied is no longer
-% unique, and applying the \textit{wrong} correction can in fact lead to a logical
-% gate being applied to the qubits. The logical error rate of encoded qubits, as a function of the
-% physical error rate, is a key parameter of interest in characterizing the
-% effectiveness of an encoding protocol. Another limitation of this simple code is
-% it inability to correct for phase-flip ($Z$ type) errors. Since these errors
-% commute with the stabilizer group, they go undetected by the above scheme.
-
-% There are many encoding schemes, of various sizes, that can correct for single
-% bit-flip and phase-flip errors \cite{PhysRevLett.77.793} \cite{Shor_FTQEC}. In
-% general, the more reliable an error correcting scheme is to be, the higher the
-% number of required physical qubits. One particularly promising encoding and
-% detection scheme is the Surface Code, which we will elaborate more on in the
-% sections to come. 
 
 %%% Local Variables:
 %%% mode: latex

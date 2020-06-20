@@ -23,7 +23,7 @@ logical qubit states
 |1\rangle_L &= \frac{1}{\sqrt{2}} (|0101\rangle + |1010\rangle) 
 \end{align}
 from which it is easy to see that this code has distance $d=2$. It is therefore
-capable of \textit{detecting} errors, but not of \texit{correcting} them. This
+capable of \textit{detecting} errors, but not of \textit{correcting} them. This
 can be seen by realizing that, for example, an $X$-error on D2 or D4 give rise
 to the exact same syndrome.
 
@@ -47,8 +47,11 @@ measurement outcomes that signal no error whatsoever are possible here are a
 testament to the precision with which superconducting qubits can be initialized,
 manipulated and measured. As further research realizes qubits with error rates
 further and further below the error threshold for reliable error correction,
-larger codes and better stabilizer measurement can make fault-tolerant
-computation possible.
+larger codes and better stabilizer measurement can make large-scale,
+fault-tolerant computation possible. Versluis \textit{et al.} have proposed a
+scheme for scalable QEC using transmon superconducting qubits that focuses on
+developing an eight-qubit unit cell that can be used to tile together a full
+surface code \cite{Versluis_2017}.
 
 Implementations of the surface code are not only limited to superconducting
 qubits, either. Recent proposals, such as that of Hill \textit{et al.} , to
@@ -62,7 +65,6 @@ number of steps required is independent of qubit number, which makes this
 approach eminently scalable. Though the results presented by Hill \textit{et
   al.} are simulations, the authors stress that all the key requirements for
 implementing this scheme in a physical system have already been demonstrated.
-
 
 %%% Local Variables:
 %%% mode: latex
