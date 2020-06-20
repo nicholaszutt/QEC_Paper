@@ -30,23 +30,6 @@ recent decades from the schemes proposed by Shor \cite{Shor_1995_QEC} and Steane
 \cite{fowler12_surfac_codes} that have higher tolerance to errors and require
 fewer interactions among the qubits.
 
-In this article, we review the key principles of quantum error correction,
-discuss ...
-
-<<<<<<< HEAD
-\subsection{Principles of Quantum Error Correction}
-% I think that here we should mention what the [[n,k,d]] code is.
-In the basic theory of quantum error correction, quantum states are encoded into
-several physical qubits. By performing the appropriate parity checks, it is
-possible to probe the state of the encoded qubit (which is comprised of many
-physical qubits) without changing its state, in order to detect errors on
-individual physical qubits. These parity checks are the \textit{stabilizers} of
-the QEC code; when all stabilizer measurements return an eigenvalue
-of $+1$, it signals that no error has occurred \cite{nielsen_chuang_2010}.
-Effective encoding protocols are such that each error process gives rise to a
-unique syndrome, which is just the list of stabilizer measurement outcomes,
-which provides the information needed to correct the error \cite{fowler12_surfac_codes}.
-
 \begin{figure}
   \centering
   \includegraphics[width=0.4\textwidth]{images/surface_code.png}
@@ -58,47 +41,30 @@ which provides the information needed to correct the error \cite{fowler12_surfac
   \label{fig:surface_code}
 \end{figure}
 
-In any real implementation of physical qubits, there are several sources of
-error. State preparation and measurement may not be carried out perfectly.
-Coherent errors also occur through the imperfect application of quantum gates in
-circuits \cite{Devitt_2013}. Error models and QEC schemes are all
-predicated on the assumption that low-weight errors (affecting only a few
-qubits) are more likely than high weight errors. In other words, error
-probabilities must be small \cite{terhal15}. In principle though, all these
-(small) sources of error can be corrected for using a variety of encoding and
-detection schemes.
+\subsection{Surface codes}
+Before discussing the fundamentals of QEC in the following section, we want to
+briefly introduce surface codes, and how they can be used to store quantum states.
 
-The error detection scheme implemented by the surface code, shown in Fig.
-\ref{fig:surface_code}, is capable of precisely identifying errors in large
-arrays of qubits. The $X$- and $Z$-stabilizer ancillas conduct parity
-measurements between the data qubits to which they are connected through a
-sequence of CNOT operations. Should an error occur on a given data qubit,
-depending on the error type ($X$, $Y$, or $Z$) either the $X$ or $Z$ (or both)
-type stabilizers will fire (return an outcome of $-1$ in their measurement),
-alerting us to the error.
+Surface codes, a class of topological QEC codes, implement error correction
+through a 2D array of qubits on a lattice, as shown in Fig.
+\ref{fig:surface_code}. Computational states are stored in the \textit{data
+  qubits} (open circles), whereas error detection and correction is done through
+the \textit{measurement qubits} (solid circles). Qubits encoded in the surface
+code are protected by stabilizers that only require nearest-neighbour
+interactions (making two-qubit gates easy to implement), have a very high error
+threshold relative to many other schemes \cite{terhal15}, and are capable of
+correcting multiple, arbitrary errors on their physical qubits. Surface codes
+are also rather straightforward to build, compared to QEC codes that rely on
+more topologically complex architectures (for instance, Kitaev's toric code
+\cite{Kitaev_2003}). It is not difficult to see why surface codes have attracted
+so much attention recently as the most viable path forward in fault-tolerant
+computing.
 
-One great strength of the surface code is its ability to diagnose multiple
-errors simultaneously. Should two adjacent $X$-checks fire at one end of the
-surface, while two $Z$-checks fire at the other end, we can conclude that a
-phase-flip error occurred on the data qubit between the two $X$-checks, while a
-bit-flip error occurred between the $Z$-checks. One must be careful, however,
-because decoding the error syndrome for any code is a problem without a unique
-solution \cite{terhal15}. Taking the top-left data qubit in Fig. \ref{fig:surface_code} as an
-example, one can confirm that a bit-flip error on that qubit would give rise to
-the exact same syndrome as a series of bit-flip errors on the rest of the top
-row of data qubits. For systems with small error probabilities, the single
-bit-flip error is of course much more likely than the long series of errors
-required to produce the same syndrome, but as the error rate grows, such
-mistakes in identifying the cause of a syndrome become more commonplace. 
-
-When a syndrome is misinterpreted, the code implements the \textit{wrong
-  correction}, and this can lead to a logical level operation being applied to
-the logical qubit. The rate at which this occurs, called the \textit{logical
-  error rate}, as a function of the physical error rate of the code is of great
-interest in characterizing the effectiveness of an error correction protocol.
-=======
->>>>>>> d425746b3f13402106c2bcae028f89a2e077ca1d
-
+In this article, we review the key principles of quantum error correction,
+discuss the need for physical qubits at error rates below their threshold values
+for useful encoding, and briefly present some of the current progress toward
+experimental realizations of the surface code on superconducting qubits and
+silicon quantum dots.
 
 %%% Local Variables:
 %%% mode: latex

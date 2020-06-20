@@ -10,17 +10,6 @@ Effective encoding protocols are such that each error process gives rise to a
 unique syndrome, which is just the list of stabilizer measurement outcomes,
 which provides the information needed to correct the error \cite{fowler12_surfac_codes}.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.4\textwidth]{images/surface_code.png}
-  \caption{A 2D array of qubits implementing the surface code. Data qubits are
-    the white circles, which are connected to 2 $Z$- and 2 $X$-stabilizers
-    respectively. This code is capable of precisely characterizing Pauli noise
-    due to the complimentary spacing of the $X$ and $Z$ checks. Figure from
-    \cite{fowler12_surfac_codes}.}
-  \label{fig:surface_code}
-\end{figure}
-
 In any real implementation of physical qubits, there are several sources of
 error. State preparation and measurement may not be carried out perfectly.
 Coherent errors also occur through the imperfect application of quantum gates in
@@ -39,26 +28,6 @@ sequence of CNOT operations. Should an error occur on a given data qubit,
 depending on the error type ($X$, $Y$, or $Z$) either the $X$ or $Z$ (or both)
 type stabilizers will fire (return an outcome of $-1$ in their measurement),
 alerting us to the error.
-
-One great strength of the surface code is its ability to diagnose multiple
-errors simultaneously. Should two adjacent $X$-checks fire at one end of the
-surface, while two $Z$-checks fire at the other end, we can conclude that a
-phase-flip error occurred on the data qubit between the two $X$-checks, while a
-bit-flip error occurred between the $Z$-checks. One must be careful, however,
-because decoding the error syndrome for any code is a problem without a unique
-solution \cite{terhal15}. Taking the top-left data qubit in Fig. \ref{fig:surface_code} as an
-example, one can confirm that a bit-flip error on that qubit would give rise to
-the exact same syndrome as a series of bit-flip errors on the rest of the top
-row of data qubits. For systems with small error probabilities, the single
-bit-flip error is of course much more likely than the long series of errors
-required to produce the same syndrome, but as the error rate grows, such
-mistakes in identifying the cause of a syndrome become more commonplace. 
-
-When a syndrome is misinterpreted, the code implements the \textit{wrong
-  correction}, and this can lead to a logical level operation being applied to
-the logical qubit. The rate at which this occurs, called the \textit{logical
-  error rate}, as a function of the physical error rate of the code is of great
-interest in characterizing the effectiveness of an error correction protocol.
 
 \subsection{Fault tolerance}
 As mentioned in the precious section, errors can occur at every point in the
@@ -91,33 +60,48 @@ to require $d-2$ errors at each logical block.
   \label{fig:fault_tol}
 \end{figure}
 
-<<<<<<< HEAD
-% Maybe logical error rates should be defined here
-=======
 \subsection{Error threshold}
-% Maybe the logical error should go here.
->>>>>>> d425746b3f13402106c2bcae028f89a2e077ca1d
-However, it is not enough to have a fault tolerant set of operations in order to
-implement a successful QEC protocol. Indeed, we want the logical error rate to
-lower when increasing the code distance, either by means of concatenation or, in
-the case of surface codes, by increasing the size of the surface. However, a high
-error rate would prevent this from happening. In the case of surfaces codes, a
-simple empirical equation that encapsulates the main properties of the logical
-error rate obtained in simulations is
-\cite{fowler12_surfac_codes}
+One great strength of the surface code is its ability to diagnose multiple
+errors simultaneously. Should two adjacent $X$-checks fire at one end of the
+surface, while two $Z$-checks fire at the other end, we can conclude that a
+phase-flip error occurred on the data qubit between the two $X$-checks, while a
+bit-flip error occurred between the $Z$-checks. One must be careful, however,
+because decoding the error syndrome for any code is a problem without a unique
+solution \cite{terhal15}. Taking the top-left data qubit in Fig.
+\ref{fig:surface_code} as an example, one can confirm that a bit-flip error on
+that qubit would give rise to the exact same syndrome as a series of bit-flip
+errors on the rest of the top row of data qubits. For systems with small error
+probabilities, the single bit-flip error is of course much more likely than the
+long series of errors required to produce the same syndrome, but as the error
+rate grows, such mistakes in identifying the cause of a syndrome become more
+commonplace.
+
+When a syndrome is misinterpreted, the code implements the \textit{wrong
+  correction}, and this can lead to a logical level operation being applied to
+the logical qubit. The rate at which this occurs, called the \textit{logical
+  error rate}, as a function of the physical error rate of the code is of great
+interest in characterizing the effectiveness of an error correction protocol.
+
+Indeed, we want the logical error rate to decrease as a function of increasing
+code distance, either by means of concatenation or, in the case of surface
+codes, by increasing the size of surface. However, a high error rate would
+prevent this from happening. In the case of surfaces codes, a simple empirical
+equation that encapsulates the main properties of the logical error rate
+obtained in simulations is \cite{fowler12_surfac_codes}
 \begin{equation}
   \label{eq:1}
   P_L = c\left(\frac{p}{p_{th}}\right)^{\frac{ d+1 }{2}},
 \end{equation}
 where d is the distance of the QEC protocol employed, $c$ is a constant that
-depends on the exact characteristics of the error model, $p$ is the error rate
-under sensible assumptions and $p_{th}$ is the error rate threshold. This
-equation clearly shows the benefit of increasing the code distance, since for
-$p<p_{th}$, the logical error rate decreases with increasing distance. Even
-though these threshold error rates vary depending on the employed error model,
-the current consensus puts the threshold at around $10^{-2}$ \cite{terhal15}
-\cite{Versluis_2017}. However, achieving a physical system that accomplishes
-such a low error rate experimentally remains an outstanding challenge.
+depends on the exact characteristics of the error model, $p$ is the physical
+error rate under sensible assumptions and $p_{th}$ is the error rate threshold.
+This equation clearly shows that the process of encoding is beneficial (leads to
+a lower logical error rate) only if the physical qubit error rate is below the
+critical threshold value of $p_{th}$. Even though these threshold error rates
+vary depending on the employed error model, the current consensus puts the
+threshold at around $10^{-2}$ \cite{terhal15} \cite{Versluis_2017}. However,
+achieving a physical system that accomplishes such a low error rate
+experimentally remains an outstanding challenge.
 
 
 %%% Local Variables:
