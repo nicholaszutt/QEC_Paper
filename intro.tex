@@ -40,7 +40,7 @@ several physical qubits. By performing the appropriate parity checks, it is
 possible to probe the state of the encoded qubit (which is comprised of many
 physical qubits) without changing its state, in order to detect errors on
 individual physical qubits. These parity checks are the \textit{stabilizers} of
-the error correction code; when all stabilizer measurements return an eigenvalue
+the QEC code; when all stabilizer measurements return an eigenvalue
 of $+1$, it signals that no error has occurred \cite{nielsen_chuang_2010}.
 Effective encoding protocols are such that each error process gives rise to a
 unique syndrome, which is just the list of stabilizer measurement outcomes,
@@ -60,7 +60,7 @@ which provides the information needed to correct the error \cite{fowler12_surfac
 In any real implementation of physical qubits, there are several sources of
 error. State preparation and measurement may not be carried out perfectly.
 Coherent errors also occur through the imperfect application of quantum gates in
-circuits \cite{Devitt_2013}. Error models and error correction schemes are all
+circuits \cite{Devitt_2013}. Error models and QEC schemes are all
 predicated on the assumption that low-weight errors (affecting only a few
 qubits) are more likely than high weight errors. In other words, error
 probabilities must be small \cite{terhal15}. In principle though, all these
