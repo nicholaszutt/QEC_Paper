@@ -1,3 +1,66 @@
+% I think that here we should mention what the [[n,k,d]] code is.
+In the basic theory of quantum error correction, quantum states are encoded into
+several physical qubits. By performing the appropriate parity checks, it is
+possible to probe the state of the encoded qubit (which is comprised of many
+physical qubits) without changing its state, in order to detect errors on
+individual physical qubits. These parity checks are the \textit{stabilizers} of
+the error correction code; when all stabilizer measurements return an eigenvalue
+of $+1$, it signals that no error has occurred \cite{nielsen_chuang_2010}.
+Effective encoding protocols are such that each error process gives rise to a
+unique syndrome, which is just the list of stabilizer measurement outcomes,
+which provides the information needed to correct the error \cite{fowler12_surfac_codes}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.4\textwidth]{images/surface_code.png}
+  \caption{A 2D array of qubits implementing the surface code. Data qubits are
+    the white circles, which are connected to 2 $Z$- and 2 $X$-stabilizers
+    respectively. This code is capable of precisely characterizing Pauli noise
+    due to the complimentary spacing of the $X$ and $Z$ checks. Figure from
+    \cite{fowler12_surfac_codes}.}
+  \label{fig:surface_code}
+\end{figure}
+
+In any real implementation of physical qubits, there are several sources of
+error. State preparation and measurement may not be carried out perfectly.
+Coherent errors also occur through the imperfect application of quantum gates in
+circuits \cite{Devitt_2013}. Error models and error correction schemes are all
+predicated on the assumption that low-weight errors (affecting only a few
+qubits) are more likely than high weight errors. In other words, error
+probabilities must be small \cite{terhal15}. In principle though, all these
+(small) sources of error can be corrected for using a variety of encoding and
+detection schemes.
+
+The error detection scheme implemented by the surface code, shown in Fig.
+\ref{fig:surface_code}, is capable of precisely identifying errors in large
+arrays of qubits. The $X$- and $Z$-stabilizer ancillas conduct parity
+measurements between the data qubits to which they are connected through a
+sequence of CNOT operations. Should an error occur on a given data qubit,
+depending on the error type ($X$, $Y$, or $Z$) either the $X$ or $Z$ (or both)
+type stabilizers will fire (return an outcome of $-1$ in their measurement),
+alerting us to the error.
+
+One great strength of the surface code is its ability to diagnose multiple
+errors simultaneously. Should two adjacent $X$-checks fire at one end of the
+surface, while two $Z$-checks fire at the other end, we can conclude that a
+phase-flip error occurred on the data qubit between the two $X$-checks, while a
+bit-flip error occurred between the $Z$-checks. One must be careful, however,
+because decoding the error syndrome for any code is a problem without a unique
+solution \cite{terhal15}. Taking the top-left data qubit in Fig. \ref{fig:surface_code} as an
+example, one can confirm that a bit-flip error on that qubit would give rise to
+the exact same syndrome as a series of bit-flip errors on the rest of the top
+row of data qubits. For systems with small error probabilities, the single
+bit-flip error is of course much more likely than the long series of errors
+required to produce the same syndrome, but as the error rate grows, such
+mistakes in identifying the cause of a syndrome become more commonplace. 
+
+When a syndrome is misinterpreted, the code implements the \textit{wrong
+  correction}, and this can lead to a logical level operation being applied to
+the logical qubit. The rate at which this occurs, called the \textit{logical
+  error rate}, as a function of the physical error rate of the code is of great
+interest in characterizing the effectiveness of an error correction protocol.
+
+\subsection{Fault tolerance}
 As mentioned in the precious section, errors can occur at every point in the
 execution of an algorithm. State preparation, measurement, and gate operations
 are examples of operations that are affected by these errors. Furthermore, the
@@ -13,7 +76,7 @@ be fault-tolerant if a single error occurring at any step between two QEC cycles
 causes at most one error at each of the logical blocks involved in the operation
 \cite{Devitt_2013}. An example of fault-tolerant operation is shown in Fig.
 \ref{fig:fault_tol} (b) where a bit-flip error in the top logical block
-propagates only once to the bottom logical block (in contrast to (a) where it
+npropagates only once to the bottom logical block (in contrast to (a) where it
 propagates multiply). It is noteworthy that the constraint of only one
 error propagating to different logical blocks can be relaxed when increasing the
 code distance \cite{Devitt_2013}. In fact, for $d$ distance codes, it suffices
@@ -28,7 +91,12 @@ to require $d-2$ errors at each logical block.
   \label{fig:fault_tol}
 \end{figure}
 
+<<<<<<< HEAD
 % Maybe logical error rates should be defined here
+=======
+\subsection{Error threshold}
+% Maybe the logical error should go here.
+>>>>>>> d425746b3f13402106c2bcae028f89a2e077ca1d
 However, it is not enough to have a fault tolerant set of operations in order to
 implement a successful QEC protocol. Indeed, we want the logical error rate to
 lower when increasing the code distance, either by means of concatenation or, in
