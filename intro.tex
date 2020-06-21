@@ -30,26 +30,31 @@ recent decades from the schemes proposed by Shor \cite{Shor_1995_QEC} and Steane
 \cite{fowler12_surfac_codes} that have higher tolerance to errors and require
 fewer interactions among the qubits.
 
+
+\subsection{Surface codes}
 \begin{figure}
   \centering
   \includegraphics[width=0.4\textwidth]{images/surface_code.png}
-  \caption{A 2D array of qubits implementing the surface code. Data qubits are
-    the white circles, which are connected to 2 $Z$- and 2 $X$-stabilizers
-    respectively. This code is capable of precisely characterizing Pauli noise
-    due to the complimentary spacing of the $X$ and $Z$ checks. Figure from
+  \caption{A 2D array of qubits representing a surface code of distance 5. Data
+    qubits are the white circles, which are connected to 2 $Z$- (green) and 2
+    $X$- (yellow) stabilizers respectively. The figure also shows the how to
+    define the logical operations $Z_L = Z_6Z_7Z_3Z_8Z_9$ (red) and $X_L =
+    X_1X_2X_3X_4X_5$ that anticomute. The purple line stands for an operation on
+    the data qubits, $X_s = X_2 X_{10}X_{11} X_{12} $ that does not affect the
+    logical state of the qubit (it is a stabilizer). Figure from
     \cite{fowler12_surfac_codes}.}
   \label{fig:surface_code}
 \end{figure}
-
-\subsection{Surface codes}
 Before discussing the fundamentals of QEC in the following section, we want to
-briefly introduce surface codes, and how they can be used to store quantum states.
+briefly introduce surface codes, and how they can be used to store quantum
+states.
 
+%measurement qubits or ancullary qubits?
 Surface codes, a class of topological QEC codes, implement error correction
 through a 2D array of qubits on a lattice, as shown in Fig.
 \ref{fig:surface_code}. Computational states are stored in the \textit{data
-  qubits} (open circles), whereas error detection and correction is done through
-the \textit{measurement qubits} (solid circles). Qubits encoded in the surface
+  qubits} (open circles), whereas the \textit{ancillary qubits} (solid circles)
+perform indirect measurements of the stabilizers. Qubits encoded in the surface
 code are protected by stabilizers that only require nearest-neighbour
 interactions (making two-qubit gates easy to implement), have a very high error
 threshold relative to many other schemes \cite{terhal15}, and are capable of
