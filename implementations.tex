@@ -6,7 +6,7 @@ reach.
 
 Current practical limitations notwithstanding, significant progress has been
 made recently in the effort to realize these codes experimentally. Recently,
-Andersen \textit{et al.} have realized a experimental setup capable of
+Andersen \textit{et al.} have realized an experimental setup capable of
 repeatedly detecting any single error \cite{Andersen_2020}. Their code is very
 small, consisting of just four data qubits and three ancillas (1 $X$-check and 2
 $Z$-checks) as shown in Fig. \ref{fig:seven_qbit_code}. Repeated ancilla
@@ -16,8 +16,8 @@ cross-talk and allow for high-fidelity entangling operations and ancilla readout
 \cite{barends14_super_quant_circuit_at_surfac} \cite{Bultink_2020}.
 
 Surface codes are capable of successfully detecting $d-1$ errors, and correcting
-up to $\lfloor{(d+1)/2} \rfloor$ errors, where $d$ is the code's
-\textit{distance}, defined at the smallest number of physical gates required to
+up to $\lfloor{(d-1)/2} \rfloor$ errors, where $d$ is the code's
+\textit{distance}, defined as the smallest number of physical gates required to
 perform a logical level operation. Andersen \textit{et al.} define the logical
 qubit states
 \begin{align}
@@ -33,8 +33,8 @@ to the exact same syndrome.
   \centering
   \includegraphics[width=0.4\textwidth]{images/seven_qbit_code.png}
   \caption{A seven qubit surface code, with four red data qubits, one blue
-    X-type ancilla and 2 Z-type ancilla qubits. This is the smallest viable
-    instance of the surface code.}
+    X-type ancilla and 2 Z-type ancilla qubits. This is the smallest instance of
+    the surface code capable of detecting arbitrary single qubit errors.}
   \label{fig:seven_qbit_code}
 \end{figure}
 
@@ -42,18 +42,18 @@ Remarkably, despite an inability to explicitly correct for detected errors,
 Andersen \textit{et al.}, by measuring ancillas for errors, can ensure a longer
 logical qubit lifetime than any physical qubit lifetime for the data qubits
 which comprise the logical qubit. By checking repeatedly that no stabilizer
-measurement has fired, they show that the decay of the expectation values
-$\langle Z_L \rangle$ and $\langle X_L \rangle$ both exceed equivalent
-expectation values for the best physical data qubit. Repeated stabilizer
-measurement outcomes that signal no error whatsoever are possible here are a
-testament to the precision with which superconducting qubits can be initialized,
-manipulated and measured. As further research realizes qubits with error rates
-further and further below the error threshold for reliable error correction,
-larger codes and better stabilizer measurement can make large-scale,
-fault-tolerant computation possible. Versluis \textit{et al.} have proposed a
-scheme for scalable QEC using transmon superconducting qubits that focuses on
-developing an eight-qubit unit cell that can be used to tile together a full
-surface code \cite{Versluis_2017}.
+measurement has fired, and discarding runs where they do, they show that the
+decay of the expectation values $\langle Z_L \rangle$ and $\langle X_L \rangle$
+both exceed equivalent expectation values for the best physical data qubit. The
+fact that repeated stabilizer measurement outcomes that signal no error
+whatsoever are possible here is a testament to the precision with which
+superconducting qubits can be initialized, manipulated and measured. As further
+research realizes qubits with error rates further and further below the error
+threshold for reliable error correction, larger codes and better stabilizer
+measurement can make large-scale, fault-tolerant computation possible. Versluis
+\textit{et al.} have proposed a scheme for scalable QEC using transmon
+superconducting qubits that focuses on developing an eight-qubit unit cell that
+can be used to tile together a full surface code \cite{Versluis_2017}.
 
 Implementations of the surface code are not only limited to superconducting
 qubits, either. Recent proposals, such as that of Hill \textit{et al.} , to
@@ -64,9 +64,10 @@ requirement for repeated stabilizer measurement by implementing shared control
 over all the qubits, resulting in a control architecture capable of executing
 the full sequence of CNOT gates for all ancilla qubits in just four steps. The
 number of steps required is independent of qubit number, which makes this
-approach eminently scalable. Though the results presented by Hill \textit{et
+approach more easily scalable. Though the results presented by Hill \textit{et
   al.} are simulations, the authors stress that all the key requirements for
-implementing this scheme in a physical system have already been demonstrated.
+implementing this scheme in a physical system have already been individually
+demonstrated.
 
 %%% Local Variables:
 %%% mode: latex

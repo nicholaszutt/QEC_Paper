@@ -1,23 +1,24 @@
 Once the error syndrome is known, it is necessary to perform a decoding process
-to obtain the best guess on what error occurred. The main challenges consist on
-obtaining a fast yet precise algorithm, which is preferably scalable with the
-number of data qubits. Regarding to the corrections, it should be noted that the
-errors are bookeped using software based techniques in such a way that the
-correction is applied at the end of the computation process by adapting the
-measurement output of the data qubits.
+to obtain the best guess for what error occurred. Optimally decoding such
+syndromes is an NP-complete problem, and therefore no efficient (polynomial
+time) algorithm yet exists \cite{Berlekamp}. However, the main challenge still
+consists in obtaining a fast yet precise algorithm, which is preferably scalable
+with the number of data qubits. As mentioned, book-keeping errors at the
+software level allows for corrections to be applied at the end of the
+computation process by adapting the measurement output of the data qubits.
 
 We would like to mention two different approaches. The \textit{maximum
-  likelihood method}\cite{} stands for applying the most probable correction. In
+  likelihood method} \cite{terhal15} applies the most probable correction. In
 this case, a lookup table could be designed to speed up the process. However it
-requires accurate error model. Furthermore, the lookup table approach becomes
-impractical with increasing number data qubits due to the exponential increase
-in possible syndromes. Another approach that is being considered is the
-\textit{minimum weight perfect matching}\cite{} algorithm. In this case, error
-syndromes are represented as a weighted graph. Afterwards, the vertices of this
-graph are paired minimizing their total weight. This pairing establishes the
-operation necessary to correct the error. This approach is shown to be robust
-and it does not scale exponentially with the number of data qubits. Nevertheless
-it is slower than using a lookup table.
+requires a very accurate error model. Furthermore, the lookup table approach
+becomes impractical with increasing number of data qubits due to the exponential
+increase in possible syndromes. Another popular approach uses the
+\textit{minimum weight perfect matching} \cite{edmonds_1965} algorithm. In this
+case, error syndromes are represented as a weighted graph. Afterwards, the
+vertices of this graph are paired minimizing their total weight. This pairing
+establishes the operation necessary to correct the error. This approach is shown
+to be robust and it does not scale exponentially with the number of data qubits.
+Nevertheless it is slower than using a lookup table.
 
 
 
