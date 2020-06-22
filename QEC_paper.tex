@@ -4,6 +4,8 @@
 \usepackage{algorithmic}
 \usepackage{graphicx}
 \usepackage{dirtytalk}
+
+\usepackage[hidelinks]{hyperref} % For hyperlinks in the PDF
 \usepackage{textcomp}
 \usepackage{xcolor}
 % \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -14,7 +16,7 @@
 \usepackage[backend=bibtex,
 sorting=none, % sort entries by appearance
 isbn=true, % include isbn, doi, url etc or not in bibliography entry
-doi=false,
+doi=true,
 url=false,
 maxnames=1,
 eprint=false,
@@ -68,22 +70,13 @@ N.C.F.Zutt@student.tudelft.nl}
 \input{intro}
 
 \section{Principles of quantum error correction}
-%how physical implementations are affected by noise, how to mitigate this
-%definition fault tolerance
 \input{fault_tolerance}
 
-\section{Defect qubits in surface codes}
-%encoding, detecting errors, ``correcting'' errors in software, fault tolerant
-%operations?
-%decoding algorithms
-\input{surface_code}
-
-\section{Decoding algorithms}
-% I think decoding should go with surface codes subsection.
-\input{decoding}
-
-\section{Experimental Implementations}
+\section{Experimental implementations}
 \input{implementations}
+
+\section{Defect qubits in surface codes}
+\input{surface_code}
 
 \section{Conclusion}
 \input{conclusion}

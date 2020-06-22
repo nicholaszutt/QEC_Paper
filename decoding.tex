@@ -8,25 +8,15 @@ software level allows for corrections to be applied at the end of the
 computation process by adapting the measurement output of the data qubits.
 
 We would like to mention two different approaches. The \textit{maximum
-  likelihood method} \cite{terhal15} applies the most probable correction. In
-this case, a lookup table could be designed to speed up the process. However it
-requires a very accurate error model. Furthermore, the lookup table approach
-becomes impractical with increasing number of data qubits due to the exponential
-increase in possible syndromes. Another popular approach uses the
-\textit{minimum weight perfect matching} \cite{edmonds_1965} algorithm. In this
-case, error syndromes are represented as a weighted graph. Afterwards, the
-vertices of this graph are paired minimizing their total weight. This pairing
-establishes the operation necessary to correct the error. This approach is shown
-to be robust and it does not scale exponentially with the number of data qubits.
-Nevertheless it is slower than using a lookup table.
-
-
-
-% Finally, another approach that is being considered is to
-% train an neural network in order to perform the decoding efficiently. This
-% approach would be extremely time efficient but it would require large amounts of
-% training data for increasing number of qubits. However, recent research shows
-% that this may still be viable option \cite{}.
+  likelihood method} \cite{Varsamopoulos_2020} finds and applies the most probable
+correction consistent with a given error model. It features high accuracy but
+low efficiency. Another popular approach uses the \textit{minimum weight perfect
+  matching} \cite{fowler2013minimum} algorithm. In this case, error syndromes
+are represented as a weighted graph. Afterwards, the vertices of this graph are
+paired minimizing their total weight. This pairing establishes the operation
+necessary to correct the error. The minimum weight perfect
+matching protocol greatly increases decoding speed at a modest cost for the
+accuracy.
 
 
 %%% Local Variables:
