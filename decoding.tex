@@ -1,0 +1,34 @@
+Once the error syndrome is known, it is necessary to perform a decoding process
+to obtain the best guess on what error occurred. The main challenges consist on
+obtaining a fast yet precise algorithm, which is preferably scalable with the
+number of data qubits. Regarding to the corrections, it should be noted that the
+errors are bookeped using software based techniques in such a way that the
+correction is applied at the end of the computation process by adapting the
+measurement output of the data qubits.
+
+We would like to mention two different approaches. The \textit{maximum
+  likelihood method}\cite{} stands for applying the most probable correction. In
+this case, a lookup table could be designed to speed up the process. However it
+requires accurate error model. Furthermore, the lookup table approach becomes
+impractical with increasing number data qubits due to the exponential increase
+in possible syndromes. Another approach that is being considered is the
+\textit{minimum weight perfect matching}\cite{} algorithm. In this case, error
+syndromes are represented as a weighted graph. Afterwards, the vertices of this
+graph are paired minimizing their total weight. This pairing establishes the
+operation necessary to correct the error. This approach is shown to be robust
+and it does not scale exponentially with the number of data qubits. Nevertheless
+it is slower than using a lookup table.
+
+
+
+% Finally, another approach that is being considered is to
+% train an neural network in order to perform the decoding efficiently. This
+% approach would be extremely time efficient but it would require large amounts of
+% training data for increasing number of qubits. However, recent research shows
+% that this may still be viable option \cite{}.
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "QEC_paper"
+%%% End:
