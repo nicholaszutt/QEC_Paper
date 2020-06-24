@@ -1,4 +1,3 @@
-% I think that here we should mention what the [[n,k,d]] code is.
 In the basic theory of quantum error correction, quantum states are encoded into
 several highly entangled physical qubits. By performing the appropriate parity
 checks, it is possible to probe the state of the physical qubits without
@@ -11,6 +10,7 @@ constructed such that that each error process gives rise to a unique syndrome,
 which is just the list of stabilizer measurement outcomes, which provides the
 information needed to correct the error \cite{fowler12_surfac_codes}.
 
+%move to FT section?
 In any real implementation of physical qubits, there are several sources of
 error. State preparation and measurement may not be carried out perfectly.
 Coherent errors also occur through the imperfect application of quantum gates in
@@ -65,6 +65,27 @@ to require $d-2$ errors at each logical block.
   \label{fig:fault_tol}
 \end{figure}
 
+\subsection{Decoding Algorithms}
+Once the error syndrome is known, it is necessary to perform a decoding process
+to obtain the best guess for what error occurred. Optimally decoding such
+syndromes is an NP-complete problem, and therefore no efficient (polynomial
+time) algorithm yet exists \cite{Berlekamp}. However, the main challenge still
+consists in obtaining a fast yet precise algorithm, which is preferably scalable
+with the number of data qubits. As mentioned, book-keeping errors at the
+software level allows for corrections to be applied at the end of the
+computation process by adapting the measurement output of the data qubits.
+
+We would like to mention two different approaches. The \textit{maximum
+  likelihood method} \cite{Varsamopoulos_2020} finds and applies the most
+probable correction consistent with a given error model. It features high
+accuracy but low efficiency. Another popular approach uses the \textit{minimum
+  weight perfect matching} \cite{fowler2013minimum} algorithm. In this case,
+error syndromes are represented as a weighted graph. Afterwards, the vertices of
+this graph are paired minimizing their total weight. This pairing establishes
+the operation necessary to correct the error. The minimum weight perfect
+matching protocol greatly increases decoding speed at a modest cost for the
+accuracy.
+
 \subsection{Error threshold}
 One great strength of the surface code is its ability to diagnose multiple
 errors simultaneously. Should two adjacent $X$-checks fire at one end of the
@@ -107,7 +128,6 @@ vary depending on the employed error model, the current consensus puts the
 threshold at around $1\%$ \cite{terhal15} \cite{Versluis_2017}. However,
 achieving a physical system that accomplishes such a low error rate
 experimentally remains an outstanding challenge.
-
 
 %%% Local Variables:
 %%% mode: latex
