@@ -15,16 +15,17 @@ effective quantum bits (or qubits) \cite{Rol_2019}
 such as quantum dots \cite{huang19_fidel_bench_two_qubit_gates_silic}
 \cite{Lawrie_2020}, NV-centres in diamond \cite{Taminiau_2014}, and even
 topological qubits in semi-conducting nanowires \cite{Mourik_2012}, have seen
-growing interest and recent development. All these systems suffer from some
-form of noise, of a slightly different nature in each case, which poses
-major challenges in the realization of a scalable quantum computer.
+growing interest and recent development. Nevertheless, all these systems suffer
+from some form of noise, of a slightly different nature in each case, which
+poses major challenges in the realization of a scalable quantum computer.
 
 Different approaches have been developed to address these systems'
 susceptibility to noise. \textit{Quantum error suppression} (QES), such as
 dynamical decoupling, attempts to reduce the noise at the hardware level, while
-\textit{quantum error correction} (QEC) techniques, aim to correct errors
-once they have occurred. In particular, the latter approach has undergone rapid
-development in recent decades from the schemes proposed by Shor
+\textit{quantum error correction} (QEC) techniques, aim to correct errors by
+means of sharing the logical qubit state among a set of highly entangled
+physical qubits. In particular, the latter approach has undergone rapid
+development in recent decades from the first proposed schemes by Shor
 \cite{Shor_1995_QEC} and Steane \cite{Steane_1996_QEC} to the new promising
 \textit{surface codes} \cite{fowler12_surfac_codes} that have higher tolerance
 to errors and require fewer interactions among the qubits.
@@ -55,39 +56,22 @@ Surface codes, a class of topological stabilizer codes, implement error
 correction through a 2D array of qubits on a lattice, as shown in Fig.
 \ref{fig:surface_code}. Computational states are stored in the \textit{data
   qubits} (white circles), whereas the \textit{ancillary qubits} (black circles)
-perform parity measurements to check for errors. One of the advantages of
-surface codes is that a QEC cycle only requires nearest neighbor interactions
-which ``lowers'' the physical required connections among qubits greatly
-reducing the ``cost to build them''. This, together with their planar
-structure makes them a suitable choice when compared with other QEC codes (for
-instance, Kitaev's toric code \cite{Kitaev_2003} or Steane's 7-qubit code
-\cite{Steane_1996_QEC}). Furthermore, they have a very high error threshold
-(1\%) relative to many other schemes \cite{terhal15}.
+perform parity measurements to check for errors. 
+
+One of the advantages of surface codes is that a QEC cycle only requires nearest
+neighbor interactions, relaxing in that way the physical requirements of the
+quantum processor. This greatly simplifies the building process, facilitating in
+that way its scalability. %Nico, Help meee
+The aforementioned property, together with their planar structure, makes them a
+suitable choice when compared with other QEC codes (for instance, Kitaev's toric
+code \cite{Kitaev_2003} or Steane's 7-qubit code \cite{Steane_1996_QEC}).
+Furthermore, they have a very high error threshold (1\%) relative to many other
+schemes \cite{terhal15}.
 % All these positive
 % characteristics have ... It is not difficult to see why surface codes have
 % attracted so much attention recently as the most viable path forward in
 % fault-tolerant computing. %Talk about this last sentenc
 
-\subsection{Decoding algorithms}
-Once the error syndrome is known, it is necessary to perform a decoding process
-to obtain the best guess for what error occurred. Optimally decoding such
-syndromes is an NP-complete problem, and therefore no efficient (polynomial
-time) algorithm yet exists \cite{Berlekamp}. However, the main challenge still
-consists in obtaining a fast yet precise algorithm, which is preferably scalable
-with the number of data qubits. As mentioned, book-keeping errors at the
-software level allows for corrections to be applied at the end of the
-computation process by adapting the measurement output of the data qubits.
-
-We would like to mention two different approaches. The \textit{maximum
-  likelihood method} \cite{Varsamopoulos_2020} finds and applies the most probable
-correction consistent with a given error model. It features high accuracy but
-low efficiency. Another popular approach uses the \textit{minimum weight perfect
-  matching} \cite{fowler2013minimum} algorithm. In this case, error syndromes
-are represented as a weighted graph. Afterwards, the vertices of this graph are
-paired minimizing their total weight. This pairing establishes the operation
-necessary to correct the error. The minimum weight perfect
-matching protocol greatly increases decoding speed at a modest cost for the
-accuracy.
 
 %%% Local Variables:
 %%% mode: latex
