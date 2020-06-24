@@ -1,6 +1,6 @@
 Quantum computers are devices that exploit the features of quantum mechanics at
 the smallest scales of reality. They even have the potential to solve
-computational problems that are not feasible for conventional computers
+computational problems that are not feasible on conventional computers
 \cite{nielsen_chuang_2010}. Some of the most well-known applications are the
 accurate simulation of physics \cite{feynman82_simul_physic_with_comput}, fast
 database searching provided by Grover's algorithm \cite{Grover_1996} and Shor's
@@ -20,22 +20,25 @@ from some form of noise, of a slightly different nature in each case, which
 poses major challenges in the realization of a scalable quantum computer.
 
 Different approaches have been developed to address these systems'
-susceptibility to noise. \textit{Quantum error suppression} (QES), such as
-dynamical decoupling, attempts to reduce the noise at the hardware level, while
-\textit{quantum error correction} (QEC) techniques, aim to correct errors by
-means of sharing the logical qubit state among a set of highly entangled
+susceptibility to noise. \textit{Quantum error suppression} (QES) methods, such
+as dynamical decoupling, attempt to reduce the noise at the hardware level,
+while \textit{quantum error correction} (QEC) techniques, aim to correct errors
+by means of sharing the logical qubit state among a set of highly entangled
 physical qubits. In particular, the latter approach has undergone rapid
 development in recent decades from the first proposed schemes by Shor
 \cite{Shor_1995_QEC} and Steane \cite{Steane_1996_QEC} to the new promising
 \textit{surface codes} \cite{fowler12_surfac_codes} that have higher tolerance
 to errors and require fewer interactions among the qubits.
 
-In this article, we review the key principles of quantum error correction,
-discuss the need for physical qubits at error rates below their threshold values
-for useful encoding, and briefly present some of the current progress toward
-experimental realizations of the surface code on superconducting qubits and
-silicon quantum dots. However, before discussing the fundamentals of QEC in the
-following section, we want to briefly introduce surface codes.
+In this article, we will introduce the surface code and briefly review the key
+principles of quantum error correction as they relate to this code and discuss
+the need for fault-tolerant encoding of physical qubits with error rates below
+their threshold values. We then briefly present some of the current progress
+toward experimental realizations of the surface code on superconducting qubits
+and silicon quantum dots, before discussing promising next steps toward
+implementing multiple encoded qubits for QEC on a single 2D surface code.
+Before discussing the fundamentals of QEC in the following section, we
+will briefly introduce surface codes.
 
 \subsection{Surface codes}
 \begin{figure}
@@ -51,26 +54,23 @@ following section, we want to briefly introduce surface codes.
   \label{fig:surface_code}
 \end{figure}
 
-%measurement qubits or ancullary qubits?
 Surface codes, a class of topological stabilizer codes, implement error
 correction through a 2D array of qubits on a lattice, as shown in Fig.
 \ref{fig:surface_code}. Computational states are stored in the \textit{data
   qubits} (white circles), whereas the \textit{ancillary qubits} (black circles)
 perform parity measurements to check for errors. 
 
-One of the advantages of surface codes is that a QEC cycle only requires nearest
-neighbor interactions, relaxing in that way the physical requirements of the
-quantum processor. This greatly simplifies the building process, facilitating in
-that way its scalability. %Nico, Help meee
-The aforementioned property, together with their planar structure, makes them a
-suitable choice when compared with other QEC codes (for instance, Kitaev's toric
-code \cite{Kitaev_2003} or Steane's 7-qubit code \cite{Steane_1996_QEC}).
-Furthermore, they have a very high error threshold (1\%) relative to many other
-schemes \cite{terhal15}.
-% All these positive
-% characteristics have ... It is not difficult to see why surface codes have
-% attracted so much attention recently as the most viable path forward in
-% fault-tolerant computing. %Talk about this last sentenc
+One of the advantages of surface codes is that a single QEC cycle requires only
+nearest neighbour interactions, greatly reducing the complexity involved in
+implementing the two-qubit gates necessary for parity measurements. This
+simplifies the building process, which makes scaling up the larger system sizes
+much more straightforward.
+
+This simplicity, combined with the planar structure of the surface code, make it
+a natural choice for experimentalists, when compared to other QEC codes (for
+instance, Kitaev's more topologically complex toric code \cite{Kitaev_2003} or
+Steane's 7-qubit code \cite{Steane_1996_QEC}). Surface codes also have a very
+high error threshold (1\%) relative to many other schemes \cite{terhal15}.
 
 
 %%% Local Variables:

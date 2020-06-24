@@ -1,3 +1,12 @@
+The discussion thus far has focused mainly on encoding logical states in the
+entire 2D array of qubits that make up a particular surface. This is the
+necessary experimental first step in proving the viability of surface codes, but
+creating different 2D sheets for each logical qubit is not the most effective
+way to scale up this scheme for multiple logicals. One key candidate approach
+suggests encoding qubits using \textit{defects} in the lattice structure of the
+surface code, by switching off certain parity measurements to define logical
+qubits. We will now outline this procedure.
+
 In order to encode a qubit in a surface code, it suffices to define two logical
 operations, namely $Z_L$ and $X_L$, which fulfill the commutation relation
 $[Z_L,X_L] = 2Z_LX_L$. When multiple qubits are required, the $X_L$ and $Z_L$
@@ -6,6 +15,16 @@ shows one of the possible set of physical operations that can lead to the
 required logical operations. In this case, a chain of Z (X) gates in the data
 qubits, represented with the red (blue) line, are one of the multiple choices to
 define a logical $Z_L$ ($X_L$) operation.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.5\textwidth]{images/surface_code_cuts.pdf}
+  \caption{Examples of a Z-cut (a) and X-cut (b) qubit in a surface lattice. The
+    logical gates are defined such that they satisfy the appropriate commutation
+    relations. Moving defects further from each other can increase the code
+    distance (the minimum number of gates required for a logical operation).}
+  \label{fig:cuts}
+\end{figure}
 
 However, even though a set qubits may be fully defined in terms of these
 operations, it is still necessary to perform arbitrary rotations and multi-qubit
@@ -22,15 +41,6 @@ stabilizers stop participating in the QEC cycle. Figure \ref{fig:cuts} shows an
 example of both Z-cut and X-cut qubits. The figure also shows with blue
 (red) line how to obtain $Z_L$ ($X_L$) operations using $Z$ ($X$) operations in
 the data qubits.
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.5\textwidth]{images/surface_code_cuts.pdf}
-  \caption{Examples of a Z-cut (a) and X-cut (b) qubit in a surface lattice. The
-  logical gates are defined such that they satisfy the appropriate commutation
-  relations. Moving defects further from each other can increase the code
-  distance (the minimum number of gates required for a logical operation).}
-  \label{fig:cuts}
-\end{figure}
 
 These logical gates define the qubit but performing two-qubit operations on them
 is highly non-trivial. Reviewing in full detail all the operations in these
