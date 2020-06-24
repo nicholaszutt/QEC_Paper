@@ -24,6 +24,7 @@ cross-talk and allow for high-fidelity entangling operations and ancilla readout
   \label{fig:seven_qbit_code}
 \end{figure}
 
+%Talk about this paragraph
 Surface codes are capable of successfully detecting $d-1$ errors, and correcting
 up to $\lfloor{(d-1)/2} \rfloor$ errors, where $d$ is the code's
 \textit{distance}, defined as the smallest number of physical gates required to
@@ -37,6 +38,23 @@ from which it is easy to see that this code has distance $d=2$. It is therefore
 capable of \textit{detecting} errors, but not of \textit{correcting} them. This
 can be seen by realizing that, for example, an $X$-error on D2 or D4 give rise
 to the exact same syndrome.
+
+%Let me know which one do you prefer.
+
+% Remarkably, despite the aforementioned surface code not being able to correct
+% errors, Andersen \textit{et al.} demonstrated an increase in the lifetime time
+% of the logical qubit with respect to any of the physical qubits. They did this
+% by checking repeatedly that no stabilizer measurement has fired, and
+% discarding runs where they did fire.The fact that repeated stabilizer
+% measurement outcomes that signal no error whatsoever are possible here is a
+% testament to the precision with which superconducting qubits can be
+% initialized, manipulated and measured. As further research realizes qubits
+% with error rates further and further below the error threshold for reliable
+% error correction, larger codes and better stabilizer measurement can make
+% large-scale, fault-tolerant computation possible. Versluis \textit{et al.}
+% have proposed a scheme for scalable QEC using transmon superconducting qubits
+% that focuses on developing an eight-qubit unit cell that can be used to tile
+% together a full surface code \cite{Versluis_2017}.
 
 Remarkably, despite an inability to explicitly correct for detected errors,
 Andersen \textit{et al.}, by measuring ancillas for errors, can ensure a longer
