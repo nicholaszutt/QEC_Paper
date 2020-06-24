@@ -6,8 +6,8 @@ errors on individual physical qubits. These parity checks are the
 \textit{stabilizers} of the error correction code; when all stabilizer
 measurements return an eigenvalue of $+1$, it signals that no error has occurred
 \cite{nielsen_chuang_2010}. Effective encoding protocols are constructed such
-that different error processes gives rise to a unique \textit{syndrome}, which
-is just the list of stabilizer measurement outcomes providing the information
+that different error processes give rise to unique \textit{syndromes}, which
+are the list of stabilizer measurement outcomes providing the information
 needed to correct the error \cite{fowler12_surfac_codes}.
 
 The error detection scheme implemented by the surface code, shown in Fig.
@@ -18,35 +18,32 @@ sequence of controlled-not (CNOT) operations. Should an error occur on a given
 data qubit, depending on the error type ($X$, $Y$, or $Z$) either the $X$ or $Z$
 (or both) type stabilizers will fire (return an outcome of $-1$ in their
 measurement), which heralds the error and allows for its appropriate correction.
-% Corrections often take place at the software level, since applications of gates
-% in the hardware are susceptible to noise. It is often easier (and less
-% error-prone) to propagate the error through the circuit and correct the outcome
-% of a measurement than it is to physically correct the error in the hardware.
 
 \subsection{Fault tolerance}
 In any real implementation of physical qubits, there are several sources of
-error. State preparation and measurement may not be carried out perfectly.
+error. State preparation and measurement may be imperfectly carried out.
 Coherent errors also occur through the imperfect application of quantum gates in
 circuits \cite{Devitt_2013}. Error models and error correction schemes are all
 predicated on the assumption that low-weight errors (affecting only a few
 qubits) are more likely than high weight errors. However, errors occurring at
 any of these steps may propagate through the different operations to the rest of
 the components of the system. This could lead to cascading errors throughout the
-entire process, destroying all reliability in the computation through loss of
-coherence. If a quantum computer is ever to be realized, errors must be
-carefully contained.
+entire process, destroying all reliability in the computation. If a quantum
+computer is ever to be realized, errors must be carefully contained.
 
-It is in this context of error propagation that the concept of
-\textit{fault-tolerant} quantum computing arises. A certain operation is said to
-be fault-tolerant if a single error occurring at any step between two QEC cycles
-causes at most one error at each of the logical blocks involved in the operation
+In this context of error propagation the concept of \textit{fault-tolerant}
+quantum computing arises. A certain operation is said to be fault-tolerant if a
+single error occurring at any step between two QEC cycles causes at most one
+error at each of the logical blocks involved in the operation
 \cite{Devitt_2013}. An example of fault-tolerant operation is shown in Fig.
 \ref{fig:fault_tol} (b) where a bit-flip error in the top logical block
 propagates only once to the bottom logical block (in contrast to (a) where it
 propagates multiply). It is noteworthy that the constraint of only one error
 propagating to different logical blocks can be relaxed when increasing the code
-distance \cite{Devitt_2013}. In fact, for codes of distance $d$, it suffices to
-require $\lfloor{(d-1)/2} \rfloor$ errors at each logical block.
+\textit{distance} \cite{Devitt_2013}, where the distance is defined as the
+smallest number of physical gates required to perform a logical level operation.
+In fact, for codes of distance $d$, it suffices to require $\lfloor{(d-1)/2}
+\rfloor$ errors at each logical block.
 
 \begin{figure}[htbp]
   \centering
@@ -63,11 +60,12 @@ to obtain the best guess for what error occurred. Optimally decoding such
 syndromes is an NP-complete problem, and therefore no efficient (polynomial
 time) algorithm yet exists \cite{Berlekamp}. However, the main challenge still
 consists in obtaining a fast yet precise algorithm, which is preferably scalable
-with the number of data qubits. Book-keeping errors at the
-software level allows for corrections to be applied at the end of the
-computation process by adapting the measurement output of the data qubits.
+with the number of data qubits. It should be noted that errors can simply be
+tracked at the software level allowing for corrections to be applied at the end
+of the computation process by adapting the measurement output of the data
+qubits.
 
-We would like to mention two different approaches. The \textit{maximum
+We would like to mention two different decoding algorithms. The \textit{maximum
   likelihood method} \cite{Varsamopoulos_2020} finds and applies the most
 probable correction consistent with a given error model. It features high
 accuracy but low efficiency. Another popular approach uses the \textit{minimum
@@ -75,7 +73,7 @@ accuracy but low efficiency. Another popular approach uses the \textit{minimum
 error syndromes are represented as a weighted graph. Afterwards, the vertices of
 this graph are paired minimizing their total weight. This pairing establishes
 the operation necessary to correct the error. The minimum weight perfect
-matching protocol greatly increases decoding speed at a modest cost for the
+matching protocol greatly increases decoding speed at a modest cost for
 accuracy.
 
 \subsection{Error threshold}
@@ -112,14 +110,14 @@ obtained in simulations is \cite{fowler12_surfac_codes}
 \end{equation}
 where $d$ is the distance of the QEC protocol employed, $c$ is a constant that
 depends on the exact characteristics of the error model, $p$ is the physical
-error rate under sensible assumptions and $p_{th}$ is the error rate threshold.
+error rate under sensible assumptions and $p_{th}$ is the threshold error rate.
 This equation clearly shows that the process of encoding is beneficial (leads to
 a lower logical error rate) only if the physical qubit error rate is below the
 critical threshold value of $p_{th}$. Even though these threshold error rates
 vary depending on the employed error model, the current consensus puts the
-threshold at around $1\%$ \cite{terhal15} \cite{Versluis_2017}. However,
-achieving a physical system that accomplishes such a low error rate
-experimentally remains an outstanding challenge.
+threshold at around $1\%$ \cite{terhal15} \cite{Versluis_2017}. However, we are
+not aware of any experimental implementation capable of achieving such a low
+error rate.
 
 %%% Local Variables:
 %%% mode: latex

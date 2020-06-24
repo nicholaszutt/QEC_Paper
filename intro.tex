@@ -1,13 +1,12 @@
 Quantum computers are devices that exploit the features of quantum mechanics at
-the smallest scales of reality. They even have the potential to solve
-computational problems that are not feasible on conventional computers
-\cite{nielsen_chuang_2010}. Some of the most well-known applications are the
-accurate simulation of physics \cite{feynman82_simul_physic_with_comput}, fast
-database searching provided by Grover's algorithm \cite{Grover_1996} and Shor's
-polynomial time algorithm for factoring large composite numbers
-\cite{Shor_1997}, which has far-reaching consequences for current methods in
-cryptography. However, there are still key challenges that need to
-be overcome before a truly universal quantum computer can be realized.
+the smallest scales of reality. They have the potential to solve computational
+problems that are not feasible on conventional computers
+\cite{nielsen_chuang_2010}, including the accurate simulation of physics
+\cite{feynman82_simul_physic_with_comput}, fast database searching provided by
+Grover's algorithm \cite{Grover_1996} and Shor's polynomial time algorithm for
+factoring large composite numbers \cite{Shor_1997}. However, there are still key
+challenges that need to be overcome before a truly universal quantum computer
+can be realized.
 
 To date, superconducting LC circuits have shown the greatest promise in forming
 effective quantum bits (or qubits) \cite{Rol_2019}
@@ -24,21 +23,20 @@ susceptibility to noise. \textit{Quantum error suppression} (QES) methods, such
 as dynamical decoupling, attempt to reduce the noise at the hardware level,
 while \textit{quantum error correction} (QEC) techniques, aim to correct errors
 by means of sharing the logical qubit state among a set of highly entangled
-physical qubits. In particular, the latter approach has undergone rapid
-development in recent decades from the first proposed schemes by Shor
-\cite{Shor_1995_QEC} and Steane \cite{Steane_1996_QEC} to the new promising
-\textit{surface codes} \cite{fowler12_surfac_codes} that have higher tolerance
-to errors and require fewer interactions among the qubits.
+physical qubits. The latter approach has undergone rapid development in recent
+decades from the first proposed schemes by Shor \cite{Shor_1995_QEC} and Steane
+\cite{Steane_1996_QEC} to the new promising \textit{surface codes}
+\cite{fowler12_surfac_codes} that have higher tolerance to errors and require
+fewer interactions among the qubits.
 
-In this article, we will introduce the surface code and briefly review the key
-principles of quantum error correction as they relate to this code and discuss
-the need for fault-tolerant encoding of physical qubits with error rates below
-their threshold values. We then briefly present some of the current progress
-toward experimental realizations of the surface code on superconducting qubits
-and silicon quantum dots, before discussing promising next steps toward
-implementing multiple encoded qubits for QEC on a single 2D surface code.
-Before discussing the fundamentals of QEC in the following section, we
-will briefly introduce surface codes.
+In this article, we will introduce the surface code and review the key
+principles of quantum error correction as they relate to this code, including
+the fault-tolerant encoding of physical qubits with error rates below their
+threshold values. We then briefly present some of the current progress toward
+experimental realizations of the surface code on superconducting qubits and
+silicon quantum dots, before discussing promising next steps toward implementing
+multiple encoded qubits for QEC on a single 2D surface code. We first turn our
+attention to the surface code.
 
 \subsection{Surface codes}
 \begin{figure}
