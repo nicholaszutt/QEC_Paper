@@ -1,8 +1,8 @@
 Implementing a full surface code capable of detecting and correcting a wide
 range of possible errors requires at the very least, dozens of physical qubits
 capable of performing high fidelity single and two-qubit gate operations. It
-isn't surprising then that such a physical implementation remains to date out of
-reach. 
+isn't surprising then that such a physical implementation remained to date out
+of reach although noticeable progress has been made in this field.
 
 Current practical limitations notwithstanding, significant progress has been
 made recently in the effort to realize these codes experimentally. Recently,
@@ -58,20 +58,20 @@ to the exact same syndrome.
 
 Remarkably, despite an inability to explicitly correct for detected errors,
 Andersen \textit{et al.}, by measuring ancillas for errors, can ensure a longer
-logical qubit lifetime than any physical qubit lifetime for the data qubits
-which comprise the logical qubit. By checking repeatedly that no stabilizer
-measurement has fired, and discarding runs where they do, they show that the
-decay of the expectation values $\langle Z_L \rangle$ and $\langle X_L \rangle$
-both exceed equivalent expectation values for the best physical data qubit. The
-fact that repeated stabilizer measurement outcomes that signal no error
-whatsoever are possible here is a testament to the precision with which
-superconducting qubits can be initialized, manipulated and measured. As further
-research realizes qubits with error rates further and further below the error
-threshold for reliable error correction, larger codes and better stabilizer
-measurement can make large-scale, fault-tolerant computation possible. Versluis
-\textit{et al.} have proposed a scheme for scalable QEC using transmon
-superconducting qubits that focuses on developing an eight-qubit unit cell that
-can be used to tile together a full surface code \cite{Versluis_2017}.
+logical qubit lifetime than any of its physical constituents. By checking
+repeatedly that no stabilizer measurement has fired, and discarding runs where
+they do, they show that the decay of the expectation values $\langle Z_L
+\rangle$ and $\langle X_L \rangle$ both exceed equivalent expectation values for
+the best physical data qubit. The fact that repeated stabilizer measurement
+outcomes that signal no error whatsoever are possible here, is a testament to the
+precision with which superconducting qubits can be initialized, manipulated and
+measured. As further research realizes qubits with error rates further and
+further below the error threshold for reliable error correction, larger codes
+and better stabilizer measurement can make large-scale, fault-tolerant
+computation possible. Versluis \textit{et al.} have proposed a scheme for
+scalable QEC using transmon superconducting qubits that focuses on developing an
+eight-qubit unit cell that can be used to tile together a full surface code
+\cite{Versluis_2017}.
 
 Implementations of the surface code are not only limited to superconducting
 qubits, either. Recent proposals, such as that of Hill \textit{et al.} , to

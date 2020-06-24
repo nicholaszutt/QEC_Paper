@@ -35,35 +35,36 @@ criteria \cite{DiCincenzoCriteria}, we see that initialization and
 measurement capabilities are also necessary.
 
 Although all these operations can be performed using one lattice per qubit,
-it is much more efficient to use a defect based approach. In this case, a qubit
+it is more efficient to use a defect based approach. In this case, a qubit
 consists of two Z-cut (X-cut) defects, where, in its simplest form, two Z (X)
 stabilizers stop participating in the QEC cycle. Figure \ref{fig:cuts} shows an
 example of both Z-cut and X-cut qubits. The figure also shows with blue
 (red) line how to obtain $Z_L$ ($X_L$) operations using $Z$ ($X$) operations in
 the data qubits.
 
-These logical gates define the qubit but performing two-qubit operations on them
+These logical gates define the qubit but performing arbitrary operations on them
 is highly non-trivial. Reviewing in full detail all the operations in these
 defect based qubits is beyond the current scope, though there are several
 techniques that are worth mentioning. The defects that make up the qubits on the
 plane can be moved while preserving logical states, and a CNOT operation can be
 can be performed by moving one of the defects of a Z-cut qubit around one of the
-defects of an X-cut qubit. These \textit{ braiding operations } are performed
+defects of an X-cut qubit. These \textit{braiding operations} are performed
 ensuring fault tolerance since the qubits always maintain at least their initial
 code distance. Furthermore, every measure explicitly performed on the data
-qubits can be checked with the surrounding stabilizers to ensure fault
-tolerance.
+qubits while moving the defects, can be checked with the surrounding stabilizers
+to ensure fault tolerance.
 
 The other technique worth outlining is the implementation of arbitrary
 Z-rotations (making a T gate possible). This is performed in an indirect way by
 first preparing an ancilla. Performing arbitrary rotations require the
 preparation of an arbitrary state, which is by itself a challenging task. In
-this case, the approach followed consists of starting with a two Z-cut qubit
-separated by only one data qubit and then separating the Z-cuts to protect the
-state for the remainder of the operation. Due to the typically low fidelity of
-the prepared ancilla, several such ancillas are prepared and undergo
-purification to create one high fidelity ancilla for use. These techniques make
-clear how a universal gate set can be implemented using the surface code.
+this case, the approach followed consists on starting with a two Z-cut qubit
+separated by only one data where the arbitrary Z-rotation is easy to perform.
+Afterwards, the Z-cuts are separated to protect the state for the
+remainder of the operation. Due to the typically low fidelity of the prepared
+ancilla, several such ancillas are prepared and undergo purification to create
+one high fidelity ancilla for use. These techniques make clear how a universal
+gate set can be implemented using the surface code.
 
 
 %%% Local Variables:
