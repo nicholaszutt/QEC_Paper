@@ -6,9 +6,9 @@ errors on individual physical qubits. These parity checks are the
 \textit{stabilizers} of the error correction code; when all stabilizer
 measurements return an eigenvalue of $+1$, it signals that no error has occurred
 \cite{nielsen_chuang_2010}. Effective encoding protocols are constructed such
-that different error processes gives rise to a unique syndrome, which is just the
-list of stabilizer measurement outcomes, which provides the information needed
-to correct the error \cite{fowler12_surfac_codes}.
+that different error processes gives rise to a unique \textit{syndrome}, which
+is just the list of stabilizer measurement outcomes providing the information
+needed to correct the error \cite{fowler12_surfac_codes}.
 
 The error detection scheme implemented by the surface code, shown in Fig.
 \ref{fig:surface_code}, is capable of precisely identifying errors in large
@@ -43,10 +43,10 @@ causes at most one error at each of the logical blocks involved in the operation
 \cite{Devitt_2013}. An example of fault-tolerant operation is shown in Fig.
 \ref{fig:fault_tol} (b) where a bit-flip error in the top logical block
 propagates only once to the bottom logical block (in contrast to (a) where it
-propagates multiply). It is noteworthy that the constraint of only one
-error propagating to different logical blocks can be relaxed when increasing the
-code distance \cite{Devitt_2013}. In fact, for codes of distance $d$, it suffices
-to require $d-2$ errors at each logical block.
+propagates multiply). It is noteworthy that the constraint of only one error
+propagating to different logical blocks can be relaxed when increasing the code
+distance \cite{Devitt_2013}. In fact, for codes of distance $d$, it suffices to
+require $\lfloor{(d-1)/2} \rfloor$ errors at each logical block.
 
 \begin{figure}[htbp]
   \centering
