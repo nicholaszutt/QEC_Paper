@@ -50,7 +50,8 @@ In fact, for codes of distance $d$, it suffices to require $\lfloor{(d-1)/2}
   \includegraphics[width=0.5\textwidth]{images/fault_tolerance.pdf}
   \caption{Exmple of an operation that is not fault-tolerant (a) and one that is
     fault-tolerant (b). In these examples a bit-flip error in the top logical
-    block propagates through the CNOT gates to the bottom logical block.}
+    block propagates through the CNOT gates to the bottom logical block. Figure
+    from \cite{Devitt_2013}.}
   \label{fig:fault_tol}
 \end{figure}
 
@@ -65,16 +66,16 @@ tracked at the software level allowing for corrections to be applied at the end
 of the computation process by adapting the measurement output of the data
 qubits.
 
-We would like to mention two different decoding algorithms. The \textit{maximum
-  likelihood method} \cite{Varsamopoulos_2020} finds and applies the most
-probable correction consistent with a given error model. It features high
-accuracy but low efficiency. Another popular approach uses the \textit{minimum
-  weight perfect matching} \cite{fowler2013minimum} algorithm. In this case,
-error syndromes are represented as a weighted graph. Afterwards, the vertices of
-this graph are paired minimizing their total weight. This pairing establishes
-the operation necessary to correct the error. The minimum weight perfect
-matching protocol greatly increases decoding speed at a modest cost for
-accuracy.
+We would like to mention two different decoding algorithms although new and
+promising approaches are also being explored \cite{Varsamopoulos_2020}. The
+\textit{maximum likelihood method} finds and applies the most probable
+correction consistent with a given error model. It features high accuracy but
+low efficiency. Another popular approach uses the \textit{minimum weight perfect
+  matching} \cite{fowler2013minimum} algorithm. In this case, error syndromes
+are represented as a weighted graph. Afterwards, the vertices of this graph are
+paired minimizing their total weight. This pairing establishes the operation
+necessary to correct the error. The minimum weight perfect matching protocol
+greatly increases decoding speed at a modest cost for accuracy.
 
 \subsection{Error threshold}
 One great strength of the surface code is its ability to diagnose multiple

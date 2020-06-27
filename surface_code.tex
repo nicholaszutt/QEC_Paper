@@ -18,10 +18,11 @@ define a logical $Z_L$ ($X_L$) operation.
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.5\textwidth]{images/surface_code_cuts.pdf}
-  \caption{Examples of a Z-cut (a) and X-cut (b) qubit in a surface lattice. The
-    logical gates are defined such that they satisfy the appropriate commutation
-    relations. Moving defects further from each other can increase the code
-    distance (the minimum number of gates required for a logical operation).}
+  \caption{Examples of a Z-cut (a) and X-cut (b) qubit in a surface code
+    lattice. The logical gates are defined such that they satisfy the
+    appropriate commutation relations. Moving defects further from each other
+    can increase the code distance (the minimum number of gates required for a
+    logical operation). Figure from \cite{fowler12_surfac_codes}.}
   \label{fig:cuts}
 \end{figure}
 
@@ -46,7 +47,7 @@ is highly non-trivial. Reviewing in full detail all the operations in these
 defect based qubits is beyond the current scope, though there are several
 techniques that are worth mentioning. The defects that make up the qubits on the
 plane can be moved while preserving logical states, and a CNOT operation can be
-can be performed by moving one of the defects of a Z-cut qubit around one of the
+performed by moving one of the defects of a Z-cut qubit around one of the
 defects of an X-cut qubit. These \textit{braiding operations} are performed
 ensuring fault tolerance since the qubits always maintain at least their initial
 code distance. Furthermore, every measure explicitly performed on the data
@@ -58,12 +59,12 @@ Z-rotations (making a T gate possible). This is performed in an indirect way by
 first preparing an ancilla. Performing arbitrary rotations require the
 preparation of an arbitrary state, which is by itself a challenging task. In
 this case, the approach followed consists on starting with a two Z-cut qubit
-separated by only one data where the arbitrary Z-rotation is easy to perform.
-Afterwards, the Z-cuts are separated to protect the state for the
-remainder of the operation. Due to the typically low fidelity of the prepared
-ancilla, several such ancillas are prepared and undergo purification to create
-one high fidelity ancilla for use. These techniques make clear how a universal
-gate set can be implemented using the surface code.
+separated by only one data qubit, where the desired state is easily obtained by
+proper unitary gates. Afterwards, the Z-cuts are separated to protect the state
+for the remainder of the operation. Due to the expected low fidelity of the
+prepared ancilla, several such ancillas would be prepared and undergo
+purification to create one high fidelity ancilla for use. These techniques make
+clear how a universal gate set can be implemented using the surface code.
 
 
 %%% Local Variables:
