@@ -1,0 +1,24 @@
+#+TITLE: Peer Review of Group 14 by Group 8
+#+AUTHOR: Asier Galicia, Nicholas Zutt
+#+DATE: 03.07.2020
+#+OPTIONS: toc:nil
+
+* Summary of the paper
+
+* Quality of the content
+
+** Have all points been addressed?
+
+** Other important points that have been treated
+
+** Analysis of state of the art
+
+* Clarity of the paper
+
+** Structure
+
+** Language
+
+** Formatting
+
+* Additional remarks
