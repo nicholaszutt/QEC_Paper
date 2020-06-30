@@ -5,9 +5,28 @@
 
 * Summary of the paper
 
+Microwave drivers are key electronic components of the architectures
+that control experimental quantum processors. As quantum computers
+scale up to sizes necessary for fault-tolerance, the use of
+conventional room-temperature controls face new challenges. The paper
+introduces and outlines approaches to scaling up control while
+limiting delay times (by bringing control architectures closer to the
+quantum processor) and keeping the number of control lines small
+(scaling sub-linearly with number of qubits). A review of the
+state-of-the-art mentions two key recent developments in cryogenic
+microwave driver technology.
+
 * Quality of the content
 
 ** Have all points been addressed?
+
+*** Are microwave drivers required for solid-state qubits?
+
+*** Room temperature vs cryogenic MW drivers: pros and cons.
+
+*** Advantages and requirements of FDMA.
+
+*** Implications of cryogenic electronics on MW driver design.
 
 ** Other important points that have been treated
 
