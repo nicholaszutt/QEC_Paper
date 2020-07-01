@@ -1,0 +1,66 @@
+#+TITLE: Peer Review of Group 14 by Group 8
+#+AUTHOR: Asier Galicia, Nicholas Zutt
+#+DATE: 03.07.2020
+#+OPTIONS: toc:nil
+
+* Summary of the paper
+
+Microwave drivers are key electronic components of the architectures
+that control experimental quantum processors. As quantum computers
+scale up to sizes necessary for fault-tolerance, the use of
+conventional room-temperature controls face new challenges. The paper
+introduces and outlines approaches to scaling up control while
+limiting delay times (by bringing control architectures closer to the
+quantum processor) and keeping the number of control lines small
+(scaling sub-linearly with number of qubits). A review of the
+state-of-the-art mentions two key recent developments in cryogenic
+microwave driver technology.
+
+* Quality of the content
+
+** Have all points been addressed?
+   
+*** Are microwave drivers required for solid-state qubits?
+    yes
+
+*** Room temperature vs cryogenic MW drivers: pros and cons.
+    Room tempreature long delays (10ns). Thermal load due to cabling posses a
+    challenge in refrigerators. 
+
+    Cryogenic. Limited cooling power. 
+    
+*** Advantages and requirements of FDMA.
+
+*** Implications of cryogenic electronics on MW driver design.
+
+** Other important points that have been treated
+
+** Analysis of state of the art
+   They analyze the implementation of the of two microwave controllers at
+   cryogenic temperatures (4K). The main ideas are that optimizations are made
+   to reduce power consumption but the power consumption is still one order of
+   magnitude greater that the proposed limit by Bardin et al. Experiments
+   performed with these controllers show that relaxation time and leakage was
+   not deteriorated. Horse Ridge's pulse modulator is even improved with
+   respect to Googleś one by introducing FDMA. Cross talk seems a problem but
+   they do not go far into it.
+   
+   
+   A quick overview of the microwave controller with its main components would
+   have helped reading the state of the art section.
+   
+   vector modulation circuit?
+
+* Clarity of the paper
+
+** Structure
+   4.5 / Microgave control of solid state qubits too long?
+   No images that would be helpful at some places?
+
+** Language
+   4.5?
+   
+** Formatting
+   5?
+
+* Additional remarks
