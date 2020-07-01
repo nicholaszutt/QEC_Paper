@@ -35,9 +35,27 @@ microwave driver technology.
 * Clarity of the paper
 
 ** Structure
+The paper was properly structured and followed the order outlined in
+the introduction, making it very easy to read. One suggestion would be
+to have made the "Multiplexing Techniques" and "Microwave Drivers at
+Cryogenic Temperatures" sections into sub-sections under a section
+head entitled "Proposed Solutions". This would have made the structure
+clearer and would have coincided better with the paper overview given
+at the end of the introduction.
 
 ** Language
+The language was very clear. A writing style of short, declarative
+sentences broke down larger concepts effectively. The paper was
+grammatically correct throughout with hardly any typos or other
+mistakes. It was well-written and clearly proof-read several times.
 
 ** Formatting
+There were no figures and the one equation in the paper was
+well formatted with well defined symbols. The bibliography is well
+formatted and complete with helpful links for references throughout
+the paper and DOI links in the reference list.
 
 * Additional remarks
+Paper found an interesting way of illustrating the implications of
+cryogenic temp on driver design using the current state of the art.
+Accomplished a lot in one section.
