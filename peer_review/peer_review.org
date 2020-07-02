@@ -31,6 +31,10 @@ microwave driver technology.
 ** Other important points that have been treated
 
 ** Analysis of state of the art
+The paper briefly includes the key results from Patra /et al/. and
+presents the key developments of the Horse Ridge architecture in a
+coherent and understandable way. However, aside from summarizing the
+paper, more analysis of the results presented would have been very nice.
 
 * Clarity of the paper
 
@@ -59,3 +63,9 @@ the paper and DOI links in the reference list.
 Paper found an interesting way of illustrating the implications of
 cryogenic temp on driver design using the current state of the art.
 Accomplished a lot in one section.
+
+There were however sections of the paper where a figure could have
+added greatly to explanations. We understand that the authors likely
+chose not to include any figures due to the page limit, but we would
+argue that figures can be a better and more efficient way of
+explaining a concept or experimental setup than words alone.
