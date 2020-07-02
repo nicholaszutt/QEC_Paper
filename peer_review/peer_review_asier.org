@@ -5,7 +5,7 @@
 
 * Summary of the paper
 
-Microwave drivers are key electronic components of the architectures
+  Microwave drivers are key electronic components of the architectures
 that control experimental quantum processors. As quantum computers
 scale up to sizes necessary for fault-tolerance, the use of
 conventional room-temperature controls face new challenges. The paper
@@ -20,21 +20,48 @@ microwave driver technology.
 
 ** Have all points been addressed?
    
-*** Are microwave drivers required for solid-state qubits?
-    yes
+*** Are microwave drivers required for solid-state qubits? (5)
+    They mention three platforms, trasmon qubits, single electron semiconductor
+    platforms and NV centres in diamond where microwave drivers are the go-to
+    technology to perform single qubit rotations. However, they also mention a
+    platform based on multiple electron spin qubits that can implement single
+    qubit rotation by means of the Heisenberg exchange operation. 
 
-*** Room temperature vs cryogenic MW drivers: pros and cons.
-    Room tempreature long delays (10ns). Thermal load due to cabling posses a
-    challenge in refrigerators. 
+    Given that they give a complete clear description of the use of microwaves
+    in several platforms, we believe the authors deserve 5 points in this
+    question.
 
-    Cryogenic. Limited cooling power. 
+*** Room temperature vs cryogenic MW drivers: pros and cons. (4.5)
+    Room temperature long delays (10ns). Thermal load due to cabling posses a
+    challenge in refrigerators. They do not give any pro for room temperature.
+    In reference 2 they mention that room temperature electronics are much less
+    limited in terms of power consumption. Microwave drivers at cryogenic stages
+    avoid previous two problems but has the main disadvantage of its power being
+    limited due to refrigerator efficiencies.
+
     
-*** Advantages and requirements of FDMA.
+    
+*** Advantages and requirements of FDMA. (5)
+    In section 4 they give an overview of what FDMA is and why the role it plays
+    when driving qubits. Some of the mentioned advantages are that FDMA reduces
+    the number of microwave lines per qubits and that they do not restrict
+    parallel operations as time-division multiple-access does. Regarding to the
+    requirements, they mention both the wide range of frequencies required to
+    address qubits and the bulky...
+    
+    Since they address explicitly both advantages and requirements of FDMA and
+    they also give complementary information regarding to the constrains related
+    to FDMA, we believe the authors deserve 5 points.
 
 *** Implications of cryogenic electronics on MW driver design.
 
 ** Other important points that have been treated
+   Universality on some quantum platforms (how ti implement multyqubit gates)
+   
+   Challenges of microwaves (size mismatch and trade off between power and
+   speed).
 
+   Motivation and restrictions in FDMA?
 ** Analysis of state of the art
    They analyze the implementation of the of two microwave controllers at
    cryogenic temperatures (4K). The main ideas are that optimizations are made
