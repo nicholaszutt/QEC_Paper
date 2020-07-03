@@ -53,15 +53,22 @@ microwave driver technology.
     they also give complementary information regarding to the constrains related
     to FDMA, we believe the authors deserve 5 points.
 
-*** Implications of cryogenic electronics on MW driver design.
+*** Implications of cryogenic electronics on MW driver design. (4)
+    The answer to this question is related to the previous ones. he main
+    implication is that there is a trade-off beteween power comsumption and
+    performance. They also mention that the instruction set helps in this task
+    by reducing the number of I/O lines.
+    
+    Robustness... They should have mentioned that characteristics of transistors
+    change with cryogenic temperatures and that this is something that need to
+    be taken into account in the design. Also, making clear the importance of
+    the instruction set would have helped. They d
 
 ** Other important points that have been treated
    Universality on some quantum platforms (how ti implement multyqubit gates)
    
-   Challenges of microwaves (size mismatch and trade off between power and
-   speed).
+   State of the art very thoreough?
 
-   Motivation and restrictions in FDMA?
 ** Analysis of state of the art
    They analyze the implementation of the of two microwave controllers at
    cryogenic temperatures (4K). The main ideas are that optimizations are made
