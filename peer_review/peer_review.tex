@@ -1,4 +1,4 @@
-% Created 2020-07-01 Wed 16:21
+% Created 2020-07-03 Fri 11:38
 % Intended LaTeX compiler: pdflatex
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
@@ -29,48 +29,133 @@
 \maketitle
 
 \section{Summary of the paper}
-\label{sec:org469713d}
+\label{sec:org1920089}
 
 Microwave drivers are key electronic components of the architectures
 that control experimental quantum processors. As quantum computers
 scale up to sizes necessary for fault-tolerance, the use of
 conventional room-temperature controls face new challenges. The paper
-introduces and outlines approaches to scaling up control while
-limiting delay times (by bringing control architectures closer to the
-quantum processor) and keeping the number of control lines small
-(scaling sub-linearly with number of qubits). A review of the
-state-of-the-art mentions two key recent developments in cryogenic
-microwave driver technology.
+reviews a recent approach to scaling up control using microwave
+drivers at cryogenic temperatures. This lowers delay times by bringing
+control architectures closer to the quantum processor. Further, they
+discuss the use of frequency-division multiple access control, which
+allows parallel, multiple access to qubits such that the number of
+control lines grows slower than the number of qubits. The paper
+concludes with two state-of-the-art examples of such cryogenic
+microwave driver technology, developed by Google and Intel.
 
 \section{Quality of the content}
-\label{sec:orgd65fefd}
+\label{sec:org0be0e18}
 
 \subsection{Have all points been addressed?}
-\label{sec:orga15ec30}
+\label{sec:org8901d4b}
 
-\subsubsection{Are microwave drivers required for solid-state qubits?}
-\label{sec:orgd21ff08}
+\subsubsection{Are microwave drivers required for solid-state qubits? (5)}
+\label{sec:org7b3309a}
+They mention three platforms, trasmon qubits, single electron
+semiconductor platforms and NV centres in diamond where microwave
+drivers are the go-to technology to perform single qubit
+rotations. The authors also mention a key disadvantage of using
+microwave drivers, which is the inherent trade-off between power
+consumption and gate speed, which becomes a greater challenge at
+cryogenic temperatures. However, they also mention a platform
+based on multiple electron spin qubits that can implement single
+qubit rotation by means of the Heisenberg exchange operation,
+raising the possibility that microwave drivers are not essential
+for qubit control in all hardware platforms.
 
-\subsubsection{Room temperature vs cryogenic MW drivers: pros and cons.}
-\label{sec:org10acbb1}
+Given that they give a complete, clear description of the use of
+microwaves in several platforms, along with advantages and
+disadvantages, we believe the authors deserve 5 points in this
+question.
 
-\subsubsection{Advantages and requirements of FDMA.}
-\label{sec:org9948d65}
+\subsubsection{Room temperature vs cryogenic MW drivers: pros and cons. (4)}
+\label{sec:org5e1809f}
+The authors aptly outline the cons associated with room
+temperature microwave drivers, namely the delay (of up to 10ns)
+and thermal load caused by long cables running from the drivers to
+the processor. However, they do not explicitly mention advantages
+of room temperature drivers, which could be for example their
+simplicity or, as mentioned in Bardin \emph{et al.}, the fact that power
+consumption is not an issue at room temperature and one can use
+well established technology.
 
-\subsubsection{Implications of cryogenic electronics on MW driver design.}
-\label{sec:org461dba0}
+Regarding the cryogenic drivers, the authors explain how low
+temperature drivers can address the main disadvantages associated
+with room temperature drivers. They also outline the challenges
+associated with implementing drivers at cryogenic temperatures.
+
+The authors did not specifically address the pros of room
+temperature drivers, but otherwise adequately explained the
+trade-offs between room temperature and cryogenic drivers. For
+this reason, we believe they deserve 4 points for this section.
+
+\subsubsection{Advantages and requirements of FDMA. (5)}
+\label{sec:orgb526cf4}
+The authors give a good overview of FDMA and explain how it can
+take advantage of the tunability of qubit frequencies in order to
+address many qubits through one microwave line, while allowing for
+parallel operations (in contrast to time-division multiple access
+approaches). 
+
+They also explain that implementing FDMA requires drivers with a
+larger range of frequencies available to them, as well as more
+complex read-out components. One final cost of FDMA is introducing
+potential cross-talk between qubits, something that will require
+more complex electronics to mitigate and control.
+
+Since they address explicitly both advantages and requirements of FDMA and
+they also give complementary information regarding to the constrains related
+to FDMA, we believe the authors deserve 5 points.
+
+\subsubsection{Implications of cryogenic electronics on MW driver design. (4)}
+\label{sec:org9dd003e}
+The authors discuss how moving to cryogenic temperatures will
+impact the design of microwave drivers but pointing out the need
+to "balance power consumption, performance, and robust component
+selection". Power consumption and performance seem to be addressed
+adequately, using the Google controller and Horse Ridge as
+examples from the state of the art. However, more details about
+how robust component selection affects the design choices could
+have been included.
+
+As a result, we believe the authors deserve 4 points for this section.
 
 \subsection{Other important points that have been treated}
-\label{sec:orge91069c}
+\label{sec:org90c8a12}
+The authors include a helpful discussion about implementing universal
+gate sets on the various hardware platforms mentioned in their paper.
+
+They also discuss why scalable electronics are necessary for the
+implementation of a fully fault-tolerant quantum computer and mention
+the threat of leakage outside the computational subspace, especially
+for transmon qubits.
 
 \subsection{Analysis of state of the art}
-\label{sec:orgc854c7b}
+\label{sec:org43b4637}
+The main references provided for this paper were by Bardin \emph{et al.} and
+Patra \emph{et al.} which we employed by the authors several times. The
+authors provided a clear overview of the results and methods that
+Bardin \emph{et al.} used to develop their cryogenic driver, discussing the
+advantages and limitations at length. They also use the paper as a
+reference for discussing the power consumption limits of cryogenic
+microwave drivers, specifically mentioning the 250 $ \mu $W per qubit limit.
+
+The second main reference by Patra \emph{et al.} was employed in the
+state-of-the-art section to illustrate the types of design choices made when
+working with microwave drivers at cryogenic temperatures, in this case improving
+upon the results of Bardin \emph{et al.} by including FDMA capabilities and
+extending the range of available frequencies to allow for both transmon and spin
+qubit control. The review was concise and showed clear understanding of the
+results presented by Patra \emph{et al.}.
+
+
 
 \section{Clarity of the paper}
-\label{sec:orgfe10209}
+\label{sec:orgd9b6e0d}
 
 \subsection{Structure}
-\label{sec:orgfa07986}
+\label{sec:org38a86f9}
 The paper was properly structured and followed the order outlined in
 the introduction, making it very easy to read. One suggestion would be
 to have made the "Multiplexing Techniques" and "Microwave Drivers at
@@ -80,22 +165,44 @@ clearer and would have coincided better with the paper overview given
 at the end of the introduction.
 
 \subsection{Language}
-\label{sec:org8830220}
+\label{sec:orge30959e}
 The language was very clear. A writing style of short, declarative
 sentences broke down larger concepts effectively. The paper was
 grammatically correct throughout with hardly any typos or other
 mistakes. It was well-written and clearly proof-read several times.
 
 \subsection{Formatting}
-\label{sec:orgab69eba}
+\label{sec:org94cb047}
 There were no figures and the one equation in the paper was
 well formatted with well defined symbols. The bibliography is well
 formatted and complete with helpful links for references throughout
-the paper and DOI links in the reference list.
+the paper and DOI links in the reference list, however the
+bibliography does not appear in any particular order, contrary to
+common approaches that organize entries by appearance in the text, or
+name, or date.
 
 \section{Additional remarks}
-\label{sec:org9dc93cc}
+\label{sec:org6656e70}
 Paper found an interesting way of illustrating the implications of
 cryogenic temp on driver design using the current state of the art.
 Accomplished a lot in one section.
+
+In Section 5, the authors write that Bardin \emph{et al.} use 0.01\% as a
+"benchmark" of the total error rate, which rendered the rest of the
+paragraph unclear. We thought that their use of the word benchmark
+meant that Bardin \emph{et al.} were using an overall error rate of 0.01\% as
+the standard against which to compare their results. But, after
+reviewing the paper, we suspect that they mean that Bardin \emph{et al.}
+provided specifications corresponding to an overall rate of 0.01\%.
+This point could have been communicated more clearly.
+
+There were sections of the paper where a figure could have
+added greatly to explanations. We understand that the authors likely
+chose not to include any figures due to the page limit, but we would
+argue that figures can be a better and more efficient way of
+explaining a concept or experimental setup than words alone.
+
+Overall, the paper was clearly written, well-researched and showed
+good understanding of the concepts and challenges in the development
+of cryogenic microwave drivers.
 \end{document}

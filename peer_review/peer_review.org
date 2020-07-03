@@ -9,12 +9,14 @@ Microwave drivers are key electronic components of the architectures
 that control experimental quantum processors. As quantum computers
 scale up to sizes necessary for fault-tolerance, the use of
 conventional room-temperature controls face new challenges. The paper
-introduces and outlines approaches to scaling up control while
-limiting delay times (by bringing control architectures closer to the
-quantum processor) and keeping the number of control lines small
-(scaling sub-linearly with number of qubits). A review of the
-state-of-the-art mentions two key recent developments in cryogenic
-microwave driver technology.
+reviews a recent approach to scaling up control using microwave
+drivers at cryogenic temperatures. This lowers delay times by bringing
+control architectures closer to the quantum processor. Further, they
+discuss the use of frequency-division multiple-access control, which
+allows parallel, multiple access to qubits such that the number of
+control lines grows slower than the number of qubits. The paper
+concludes with two state-of-the-art examples of such cryogenic
+microwave driver technology, developed by Google and Intel.
 
 * Quality of the content
 
@@ -75,7 +77,17 @@ microwave driver technology.
     they also give complementary information regarding to the constrains related
     to FDMA, we believe the authors deserve 5 points.
 
-*** Implications of cryogenic electronics on MW driver design.
+*** Implications of cryogenic electronics on MW driver design. (4)
+    The authors discuss how moving to cryogenic temperatures will
+    impact the design of microwave drivers but pointing out the need
+    to "balance power consumption, performance, and robust component
+    selection". Power consumption and performance seem to be addressed
+    adequately, using the Google controller and Horse Ridge as
+    examples from the state of the art. However, more details about
+    how robust component selection affects the design choices could
+    have been included.
+
+    As a result, we believe the authors deserve 4 points for this section.
 
 ** Other important points that have been treated
 The authors include a helpful discussion about implementing universal
@@ -87,6 +99,14 @@ the threat of leakage outside the computational subspace, especially
 for transmon qubits.
 
 ** Analysis of state of the art
+The main references provided for this paper were by Bardin /et al./ and
+Patra /et al./ which we employed by the authors several times. The
+authors provided a clear overview of the results and methods that
+Bardin /et al./ used to develop their cryogenic driver, discussing the
+advantages and limitations at length. They also use the paper as a
+reference for discussing the power consumption limits of cryogenic
+microwave drivers, specifically mentioning the 250 $\micro$W /qubit limit.
+The authors 
 
 The paper briefly includes the key results from Patra /et al/. and
 presents the key developments of the Horse Ridge architecture in a
